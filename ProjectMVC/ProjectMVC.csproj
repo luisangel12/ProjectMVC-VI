@@ -194,7 +194,6 @@
     <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Controllers\ActivitiesWSController.cs" />
     <Compile Include="Controllers\AuthoritiesTransitController.cs" />
-    <Compile Include="Controllers\BrandsController.cs" />
     <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -202,11 +201,7 @@
     <Compile Include="Controllers\ProjectsJsonController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
-    <Compile Include="Controllers\TypeFuelsController.cs" />
-    <Compile Include="Controllers\TypeServicesController.cs" />
-    <Compile Include="Controllers\TypeTiresController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\VehicleGeneralInformationController.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
     <Compile Include="Controllers\VehicleTechnicalDataController.cs" />
@@ -398,26 +393,14 @@
     <Content Include="Views\ActivitiesWS\Create.cshtml" />
     <Content Include="Views\Vehicles\Index.cshtml" />
     <Content Include="Views\Vehicles\Create.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\VehicleGeneralInformation\Index.cshtml" />
     <Content Include="Views\VehicleGeneralInformation\Create.cshtml" />
     <Content Include="Views\VehicleTechnicalData\Index.cshtml" />
     <Content Include="Views\VehicleTechnicalData\Create.cshtml" />
-    <Content Include="Views\Users\Delete.cshtml" />
-    <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\FileUpload\Index.cshtml" />
     <Content Include="Views\FileUpload\Show.cshtml" />
     <Content Include="Views\AuthoritiesTransit\Create.cshtml" />
     <Content Include="Views\AuthoritiesTransit\Index.cshtml" />
-    <Content Include="Views\TypeTires\Index.cshtml" />
-    <Content Include="Views\TypeTires\Create.cshtml" />
-    <Content Include="Views\Brands\Index.cshtml" />
-    <Content Include="Views\Brands\Create.cshtml" />
-    <Content Include="Views\TypeFuels\Index.cshtml" />
-    <Content Include="Views\TypeFuels\Create.cshtml" />
-    <Content Include="Views\TypeServices\Create.cshtml" />
-    <Content Include="Views\TypeServices\Index.cshtml" />
     <None Include="Web References\WSTest\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -457,16 +440,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\UsersAdmin\Index.cshtml" />
-    <Content Include="Views\UsersAdmin\Edit.cshtml" />
-    <Content Include="Views\UsersAdmin\Details.cshtml" />
-    <Content Include="Views\UsersAdmin\Delete.cshtml" />
-    <Content Include="Views\UsersAdmin\Create.cshtml" />
-    <Content Include="Views\RolesAdmin\Index.cshtml" />
-    <Content Include="Views\RolesAdmin\Edit.cshtml" />
-    <Content Include="Views\RolesAdmin\Details.cshtml" />
-    <Content Include="Views\RolesAdmin\Delete.cshtml" />
-    <Content Include="Views\RolesAdmin\Create.cshtml" />
     <Content Include="Views\Account\DisplayEmail.cshtml" />
     <Content Include="Views\Shared\Info.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
