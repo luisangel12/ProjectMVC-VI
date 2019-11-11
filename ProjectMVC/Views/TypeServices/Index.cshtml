@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ProjectMVC.Logica.Models.ViewModels.TypeServicesViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+    <h2>TypeServices</h2>
+
+@Html.ActionLink(" ", "Create", "TypeServices", null, new { @class = "btn btn-primary fas fa-plus-circle" })
+
+<table class="table table-bordered">
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.Id)</td>
+        <td>@Html.DisplayNameFor(model => model.Name)</td>
+        <td>@Html.DisplayNameFor(model => model.Active)</td>
+        <td></td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => item.Id)</td>
+            <td>@Html.DisplayFor(model => item.Name)</td>
+            <td>@Html.DisplayFor(model => item.Active)</td>
+        </tr>
+    }
+</table>

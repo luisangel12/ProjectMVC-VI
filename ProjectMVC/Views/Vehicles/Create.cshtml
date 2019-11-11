@@ -1,0 +1,75 @@
+﻿@model ProjectMVC.Logica.Models.BindingModels.VehiclesCreateBindingModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<form action="/Vehicles/Create" method="post">
+
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.Id)
+            @Html.EditorFor(m => m.Id, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.LicensePlate)
+            @Html.EditorFor(m => m.LicensePlate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.LicensePlate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.NroTransitLicense)
+            @Html.EditorFor(m => m.NroTransitLicense, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.NroTransitLicense, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.StateVehicle)
+            @Html.EditorFor(m => m.StateVehicle, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.StateVehicle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.TypeServiceId)
+            @Html.EditorFor(m => m.TypeServiceId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.TypeServiceId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.CustomerId)
+            @Html.EditorFor(m => m.CustomerId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.CustomerId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <Hr />
+    <div class="form-row">
+        <div class="col-md-12">
+            <input type="text" name="Name" placeholder="Enter the Name" />
+            <input type="file" name="FileFront"/>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-12">
+            <br />
+            <button type="submit" value="" class="btn btn-primary"><i class="fas fa-save"></i></button>
+            @Html.ActionLink(" ", "Index", "Vehicles", null, new { @class = "btn btn-primary fas fa-undo-alt" })
+        </div>
+    </div>
+
+</form>

@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjectMVCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Artifacts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectId" Type="Int32" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Projects" Relationship="Self.FK_Artifacts_Projects" FromRole="Artifacts" ToRole="Projects" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="Tenants" Relationship="Self.FK__AspNetUse__Tenan__3D5E1FD2" FromRole="AspNetUsers" ToRole="Tenants" />
+    <NavigationProperty Name="Members" Relationship="Self.FK__Members__UserId__3C69FB99" FromRole="AspNetUsers" ToRole="Members" />
+    <NavigationProperty Name="UserProjects" Relationship="Self.FK__UserProje__UserI__3B75D760" FromRole="AspNetUsers" ToRole="UserProjects" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__Members__UserId__3C69FB99" FromRole="Members" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Details" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ExpectedCompletionDate" Type="DateTime" Precision="3" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Artifacts" Relationship="Self.FK_Artifacts_Projects" FromRole="Projects" ToRole="Artifacts" />
+    <NavigationProperty Name="Tenants" Relationship="Self.FK_Projects_Tenants" FromRole="Projects" ToRole="Tenants" />
+    <NavigationProperty Name="UserProjects" Relationship="Self.FK_UserProjects_Projects" FromRole="Projects" ToRole="UserProjects" />
+    <NavigationProperty Name="Tasks" Relationship="ProjectMVCModel.FK_Tasks_Projects" FromRole="Projects" ToRole="Tasks" />
+  </EntityType>
+  <EntityType Name="Tenants">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <Property Name="Plan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__AspNetUse__Tenan__3D5E1FD2" FromRole="Tenants" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Projects" Relationship="Self.FK_Projects_Tenants" FromRole="Tenants" ToRole="Projects" />
+  </EntityType>
+  <EntityType Name="UserProjects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectId" Type="Int32" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__UserProje__UserI__3B75D760" FromRole="UserProjects" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Projects" Relationship="Self.FK_UserProjects_Projects" FromRole="UserProjects" ToRole="Projects" />
+  </EntityType>
+  <Association Name="FK_Artifacts_Projects">
+    <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+    <End Role="Artifacts" Type="Self.Artifacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Artifacts">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AspNetUse__Tenan__3D5E1FD2">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="1" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUsers">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Members__UserId__3C69FB99">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="Members" Type="Self.Members" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Members">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserProje__UserI__3B75D760">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="UserProjects" Type="Self.UserProjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProjects">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Projects_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProjects_Projects">
+    <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+    <End Role="UserProjects" Type="Self.UserProjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProjects">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="ProjectMVCEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Artifacts" EntityType="Self.Artifacts" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+    <EntitySet Name="Members" EntityType="Self.Members" />
+    <EntitySet Name="Projects" EntityType="Self.Projects" />
+    <EntitySet Name="Tenants" EntityType="Self.Tenants" />
+    <EntitySet Name="UserProjects" EntityType="Self.UserProjects" />
+    <AssociationSet Name="FK_Artifacts_Projects" Association="Self.FK_Artifacts_Projects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Artifacts" EntitySet="Artifacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AspNetUse__Tenan__3D5E1FD2" Association="Self.FK__AspNetUse__Tenan__3D5E1FD2">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Members__UserId__3C69FB99" Association="Self.FK__Members__UserId__3C69FB99">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Members" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserProje__UserI__3B75D760" Association="Self.FK__UserProje__UserI__3B75D760">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="UserProjects" EntitySet="UserProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Projects_Tenants" Association="Self.FK_Projects_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProjects_Projects" Association="Self.FK_UserProjects_Projects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="UserProjects" EntitySet="UserProjects" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="Activities" EntityType="ProjectMVCModel.Activities" />
+    <EntitySet Name="Priorities" EntityType="ProjectMVCModel.Priorities" />
+    <EntitySet Name="States" EntityType="ProjectMVCModel.States" />
+    <EntitySet Name="Tasks" EntityType="ProjectMVCModel.Tasks" />
+    <AssociationSet Name="FK_Tasks_Activities" Association="ProjectMVCModel.FK_Tasks_Activities">
+      <End Role="Activities" EntitySet="Activities" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_Priorities" Association="ProjectMVCModel.FK_Tasks_Priorities">
+      <End Role="Priorities" EntitySet="Priorities" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_Projects" Association="ProjectMVCModel.FK_Tasks_Projects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_States" Association="ProjectMVCModel.FK_Tasks_States">
+      <End Role="States" EntitySet="States" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Activities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="Tasks" Relationship="ProjectMVCModel.FK_Tasks_Activities" FromRole="Activities" ToRole="Tasks" />
+  </EntityType>
+  <EntityType Name="Priorities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="Tasks" Relationship="ProjectMVCModel.FK_Tasks_Priorities" FromRole="Priorities" ToRole="Tasks" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="Tasks" Relationship="ProjectMVCModel.FK_Tasks_States" FromRole="States" ToRole="Tasks" />
+  </EntityType>
+  <EntityType Name="Tasks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Details" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ExpirationDate" Type="DateTime" Precision="3" />
+    <Property Name="IsCompleted" Type="Boolean" />
+    <Property Name="Effort" Type="Int32" />
+    <Property Name="RemainingWork" Type="Int32" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="ActivityId" Type="Int32" />
+    <Property Name="PriorityId" Type="Int32" />
+    <Property Name="ProjectId" Type="Int32" />
+    <NavigationProperty Name="Activities" Relationship="ProjectMVCModel.FK_Tasks_Activities" FromRole="Tasks" ToRole="Activities" />
+    <NavigationProperty Name="Priorities" Relationship="ProjectMVCModel.FK_Tasks_Priorities" FromRole="Tasks" ToRole="Priorities" />
+    <NavigationProperty Name="Projects" Relationship="ProjectMVCModel.FK_Tasks_Projects" FromRole="Tasks" ToRole="Projects" />
+    <NavigationProperty Name="States" Relationship="ProjectMVCModel.FK_Tasks_States" FromRole="Tasks" ToRole="States" />
+  </EntityType>
+  <Association Name="FK_Tasks_Activities">
+    <End Type="ProjectMVCModel.Activities" Role="Activities" Multiplicity="0..1" />
+    <End Type="ProjectMVCModel.Tasks" Role="Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Activities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="ActivityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_Priorities">
+    <End Type="ProjectMVCModel.Priorities" Role="Priorities" Multiplicity="0..1" />
+    <End Type="ProjectMVCModel.Tasks" Role="Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Priorities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="PriorityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_Projects">
+    <End Type="ProjectMVCModel.Projects" Role="Projects" Multiplicity="0..1" />
+    <End Type="ProjectMVCModel.Tasks" Role="Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_States">
+    <End Type="ProjectMVCModel.States" Role="States" Multiplicity="0..1" />
+    <End Type="ProjectMVCModel.Tasks" Role="Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

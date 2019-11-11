@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ProjectMVC.DAL.Models.VehicleTechnicalData>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>VehicleTechnicalData</h2>
+
+@Html.ActionLink(" ", "Create", "VehicleTechnicalData", null, new { @class = "btn btn-primary fas fa-plus-circle" })
+
+<table class="table table-bordered">
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.CapacityLoad)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.PassengerCapacity)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.GVWR)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.CapacityPassengersSitting)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.NumberAxes)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.VehicleId)
+        </td>
+        
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CapacityLoad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassengerCapacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GVWR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CapacityPassengersSitting)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberAxes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleId)
+        </td>
+    </tr>
+    }
+
+</table>

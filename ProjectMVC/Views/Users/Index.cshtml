@@ -1,0 +1,60 @@
+﻿@model IEnumerable < ProjectMVC.DAL.Models.Users>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Users</h2>
+
+@Html.ActionLink(" ", "Create", "Users", null, new { @class = "btn btn-primary fas fa-plus-circle" })
+
+<table class="table table-bordered">
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Password)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.LockoutEnabled)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.LockoutEndDateUtc)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.UserName)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.Email)
+        </td>
+        <td></td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Password)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LockoutEnabled)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LockoutEndDateUtc)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UserName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+
+
+
+    <td>
+        @Html.ActionLink(" ", "Edit", "Users", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fas fa-edit" })
+        @Html.ActionLink(" ", "Delete", "Users", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fas fa-trash" })
+    </td>
+
+</tr>
+    }
+
+</table>

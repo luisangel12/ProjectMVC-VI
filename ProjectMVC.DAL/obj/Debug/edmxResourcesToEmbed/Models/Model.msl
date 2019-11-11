@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProjectMVCModelStoreContainer" CdmEntityContainer="ProjectMVCEntities">
+    <EntitySetMapping Name="Artifacts">
+      <EntityTypeMapping TypeName="ProjectMVCModel.Artifacts">
+        <MappingFragment StoreEntitySet="Artifacts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="ProjectMVCModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="ProjectMVCModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="ProjectMVCModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="ProjectMVCModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="ProjectMVCModel.Members">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="ProjectMVCModel.Projects">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="ExpectedCompletionDate" ColumnName="ExpectedCompletionDate" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tenants">
+      <EntityTypeMapping TypeName="ProjectMVCModel.Tenants">
+        <MappingFragment StoreEntitySet="Tenants">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="Plan" ColumnName="Plan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProjects">
+      <EntityTypeMapping TypeName="ProjectMVCModel.UserProjects">
+        <MappingFragment StoreEntitySet="UserProjects">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="ProjectMVCModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Activities">
+      <EntityTypeMapping TypeName="ProjectMVCModel.Activities">
+        <MappingFragment StoreEntitySet="Activities">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Priorities">
+      <EntityTypeMapping TypeName="ProjectMVCModel.Priorities">
+        <MappingFragment StoreEntitySet="Priorities">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="ProjectMVCModel.States">
+        <MappingFragment StoreEntitySet="States">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tasks">
+      <EntityTypeMapping TypeName="ProjectMVCModel.Tasks">
+        <MappingFragment StoreEntitySet="Tasks">
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="PriorityId" ColumnName="PriorityId" />
+          <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="RemainingWork" ColumnName="RemainingWork" />
+          <ScalarProperty Name="Effort" ColumnName="Effort" />
+          <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+          <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuthoritiesTransit">
+      <EntityTypeMapping TypeName="ProjectMVCModel.AuthoritiesTransit">
+        <MappingFragment StoreEntitySet="AuthoritiesTransit">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="ProjectMVCModel.Brands">
+        <MappingFragment StoreEntitySet="Brands">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="ProjectMVCModel.Cities">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClassVehicle">
+      <EntityTypeMapping TypeName="ProjectMVCModel.ClassVehicle">
+        <MappingFragment StoreEntitySet="ClassVehicle">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer">
+      <EntityTypeMapping TypeName="ProjectMVCModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="SecondSurname" ColumnName="SecondSurname" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+          <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentTypes">
+      <EntityTypeMapping TypeName="ProjectMVCModel.DocumentTypes">
+        <MappingFragment StoreEntitySet="DocumentTypes">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Matches">
+      <EntityTypeMapping TypeName="ProjectMVCModel.Matches">
+        <MappingFragment StoreEntitySet="Matches">
+          <ScalarProperty Name="GuestGoals" ColumnName="GuestGoals" />
+          <ScalarProperty Name="HostGoals" ColumnName="HostGoals" />
+          <ScalarProperty Name="TeamHostId" ColumnName="TeamHostId" />
+          <ScalarProperty Name="TeamGuestId" ColumnName="TeamGuestId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ProjectMVCModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="ProjectMVCModel.Teams">
+        <MappingFragment StoreEntitySet="Teams">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeFuels">
+      <EntityTypeMapping TypeName="ProjectMVCModel.TypeFuels">
+        <MappingFragment StoreEntitySet="TypeFuels">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeMaintenance">
+      <EntityTypeMapping TypeName="ProjectMVCModel.TypeMaintenance">
+        <MappingFragment StoreEntitySet="TypeMaintenance">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeServices">
+      <EntityTypeMapping TypeName="ProjectMVCModel.TypeServices">
+        <MappingFragment StoreEntitySet="TypeServices">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeTires">
+      <EntityTypeMapping TypeName="ProjectMVCModel.TypeTires">
+        <MappingFragment StoreEntitySet="TypeTires">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ProjectMVCModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleFuels">
+      <EntityTypeMapping TypeName="ProjectMVCModel.VehicleFuels">
+        <MappingFragment StoreEntitySet="VehicleFuels">
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+          <ScalarProperty Name="FuelDate" ColumnName="FuelDate" />
+          <ScalarProperty Name="LiterFuel" ColumnName="LiterFuel" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="TypeFuelId" ColumnName="TypeFuelId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleGeneralInformation">
+      <EntityTypeMapping TypeName="ProjectMVCModel.VehicleGeneralInformation">
+        <MappingFragment StoreEntitySet="VehicleGeneralInformation">
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+          <ScalarProperty Name="AuthoritiesTransitId" ColumnName="AuthoritiesTransitId" />
+          <ScalarProperty Name="TypeTireId" ColumnName="TypeTireId" />
+          <ScalarProperty Name="NroDoors" ColumnName="NroDoors" />
+          <ScalarProperty Name="InitialEnrollmentDate" ColumnName="InitialEnrollmentDate" />
+          <ScalarProperty Name="TypeFuelId" ColumnName="TypeFuelId" />
+          <ScalarProperty Name="TypeBody" ColumnName="TypeBody" />
+          <ScalarProperty Name="Cylinder" ColumnName="Cylinder" />
+          <ScalarProperty Name="VIN" ColumnName="VIN" />
+          <ScalarProperty Name="ChassisNumber" ColumnName="ChassisNumber" />
+          <ScalarProperty Name="EngineNumber" ColumnName="EngineNumber" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Line" ColumnName="Line" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleMaintenance">
+      <EntityTypeMapping TypeName="ProjectMVCModel.VehicleMaintenance">
+        <MappingFragment StoreEntitySet="VehicleMaintenance">
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="TypeMaintenanceId" ColumnName="TypeMaintenanceId" />
+          <ScalarProperty Name="NextMaintenanceDate" ColumnName="NextMaintenanceDate" />
+          <ScalarProperty Name="CurrentMileage" ColumnName="CurrentMileage" />
+          <ScalarProperty Name="MaintenanceDate" ColumnName="MaintenanceDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehiclePolicySOAT">
+      <EntityTypeMapping TypeName="ProjectMVCModel.VehiclePolicySOAT">
+        <MappingFragment StoreEntitySet="VehiclePolicySOAT">
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="SOATIssueEntity" ColumnName="SOATIssueEntity" />
+          <ScalarProperty Name="EndDateValidity" ColumnName="EndDateValidity" />
+          <ScalarProperty Name="DateStartValidity" ColumnName="DateStartValidity" />
+          <ScalarProperty Name="ExpeditionDate" ColumnName="ExpeditionDate" />
+          <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicles">
+      <EntityTypeMapping TypeName="ProjectMVCModel.Vehicles">
+        <MappingFragment StoreEntitySet="Vehicles">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ClassVehicleId" ColumnName="ClassVehicleId" />
+          <ScalarProperty Name="TypeServiceId" ColumnName="TypeServiceId" />
+          <ScalarProperty Name="StateVehicle" ColumnName="StateVehicle" />
+          <ScalarProperty Name="NroTransitLicense" ColumnName="NroTransitLicense" />
+          <ScalarProperty Name="LicensePlate" ColumnName="LicensePlate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleTechnicalData">
+      <EntityTypeMapping TypeName="ProjectMVCModel.VehicleTechnicalData">
+        <MappingFragment StoreEntitySet="VehicleTechnicalData">
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+          <ScalarProperty Name="NumberAxes" ColumnName="NumberAxes" />
+          <ScalarProperty Name="CapacityPassengersSitting" ColumnName="CapacityPassengersSitting" />
+          <ScalarProperty Name="GVWR" ColumnName="GVWR" />
+          <ScalarProperty Name="PassengerCapacity" ColumnName="PassengerCapacity" />
+          <ScalarProperty Name="CapacityLoad" ColumnName="CapacityLoad" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5216A729-2536-48C9-AC68-B5878984D762}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectMVC.Logica</RootNamespace>
+    <AssemblyName>ProjectMVC.Logica</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BL\Activities.cs" />
+    <Compile Include="BL\Priorities.cs" />
+    <Compile Include="BL\Projects.cs" />
+    <Compile Include="BL\States.cs" />
+    <Compile Include="BL\Tasks.cs" />
+    <Compile Include="BL\Tenants.cs" />
+    <Compile Include="BL\TypeServices.cs" />
+    <Compile Include="BL\Users.cs" />
+    <Compile Include="BL\Utils.cs" />
+    <Compile Include="BL\Vehicles.cs" />
+    <Compile Include="Data\ConnectionDB.cs" />
+    <Compile Include="Data\ConnectionParcialMVC.cs" />
+    <Compile Include="Interfaces\IActivities.cs" />
+    <Compile Include="Interfaces\IProjec.cs" />
+    <Compile Include="Interfaces\Vehicle_Project.cs" />
+    <Compile Include="Models\BindingModels\ActivitiesBindingModels.cs" />
+    <Compile Include="Models\BindingModels\ProjectsBindingModel.cs" />
+    <Compile Include="Models\BindingModels\TasksBindingModel.cs" />
+    <Compile Include="Models\BindingModels\TypeServicesBindingModel.cs" />
+    <Compile Include="Models\BindingModels\VehiclesBindingModel.cs" />
+    <Compile Include="Models\DB\Activities.cs" />
+    <Compile Include="Models\DB\AspNetRoles.cs" />
+    <Compile Include="Models\DB\AuthoritiesTransit.cs" />
+    <Compile Include="Models\DB\Brands.cs" />
+    <Compile Include="Models\DB\Cities.cs" />
+    <Compile Include="Models\DB\ClassVehicle.cs" />
+    <Compile Include="Models\DB\Customer.cs" />
+    <Compile Include="Models\DB\DocumentTypes.cs" />
+    <Compile Include="Models\DB\Matches.cs" />
+    <Compile Include="Models\DB\Priorities.cs" />
+    <Compile Include="Models\DB\Projects.cs" />
+    <Compile Include="Models\DB\States.cs" />
+    <Compile Include="Models\DB\Tasks.cs" />
+    <Compile Include="Models\DB\Tenants.cs" />
+    <Compile Include="Models\DB\TypeFuels.cs" />
+    <Compile Include="Models\DB\TypeMaintenance.cs" />
+    <Compile Include="Models\DB\TypeServices.cs" />
+    <Compile Include="Models\DB\TypeTires.cs" />
+    <Compile Include="Models\DB\Users.cs" />
+    <Compile Include="Models\DB\VehicleFuels.cs" />
+    <Compile Include="Models\DB\VehicleGeneralInformation.cs" />
+    <Compile Include="Models\DB\VehicleMaintenance.cs" />
+    <Compile Include="Models\DB\VehiclePolicySOAT.cs" />
+    <Compile Include="Models\DB\Vehicles.cs" />
+    <Compile Include="Models\DB\VehicleTechnicalData.cs" />
+    <Compile Include="Models\ViewModels\ActivitiesViewModels.cs" />
+    <Compile Include="Models\ViewModels\ProjectsViewModel.cs" />
+    <Compile Include="Models\ViewModels\ResponseViewModel.cs" />
+    <Compile Include="Models\ViewModels\TasksViewModel.cs" />
+    <Compile Include="Models\ViewModels\TypeServicesViewModel.cs" />
+    <Compile Include="Models\ViewModels\VehiclesViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Activities.cs" />
+    <Compile Include="Services\connection.cs" />
+    <Compile Include="Services\ProjecBD.cs" />
+    <Compile Include="Services\RestClient.cs" />
+    <Compile Include="Services\TestClass.cs" />
+    <Compile Include="Services\Vehicle_Projectcs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectMVC.DAL\ProjectMVC.DAL.csproj">
+      <Project>{c8194f12-e80c-4a45-96f8-d302dd698c16}</Project>
+      <Name>ProjectMVC.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ProjectMVC\Logica\Interfaces\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
