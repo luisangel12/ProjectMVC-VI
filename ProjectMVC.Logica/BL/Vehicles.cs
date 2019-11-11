@@ -17,7 +17,7 @@ namespace ProjectMVC.Logica.BL
             DAL.Models.ProjectMVCEntities _context = new DAL.Models.ProjectMVCEntities();
 
             var listVehicles = (from _vehicles in _context.Vehicles
-                                    //join _states in _context.States on _vehicles.Sta equals _states.Id
+                                    //join _typeServices in _context.TypeServices on _vehicles.TypeServices equals _typeServices.Id
                                     //join _activities in _context.Activities on _vehicles.ActivityId equals _activities.Id
                                     //join _priorities in _context.Priorities on _vehicles.PriorityId equals _priorities.Id
                                 select new Models.DB.Vehicles

@@ -10,7 +10,6 @@
 
 <table class="table table-bordered">
     <tr>
-        <td>@Html.DisplayNameFor(model => model.Id)</td>
         <td>@Html.DisplayNameFor(model => model.LicensePlate)</td>
         <td>@Html.DisplayNameFor(model => model.NroTransitLicense)</td>
         <td>@Html.DisplayNameFor(model => model.StateVehicle)</td>
@@ -24,7 +23,6 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@Html.DisplayFor(model => item.Id)</td>
             <td>@Html.DisplayFor(model => item.NroTransitLicense)</td>
             <td>@Html.DisplayFor(model => item.NroTransitLicense)</td>
             <td>@Html.DisplayFor(model => item.StateVehicle)</td>

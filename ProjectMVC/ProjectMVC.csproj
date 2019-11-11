@@ -193,8 +193,6 @@
     <Compile Include="Controllers\ActivitiesAPIController.cs" />
     <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Controllers\ActivitiesWSController.cs" />
-    <Compile Include="Controllers\AuthoritiesTransitController.cs" />
-    <Compile Include="Controllers\BrandsController.cs" />
     <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -202,9 +200,6 @@
     <Compile Include="Controllers\ProjectsJsonController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
-    <Compile Include="Controllers\TypeFuelsController.cs" />
-    <Compile Include="Controllers\TypeServicesController.cs" />
-    <Compile Include="Controllers\TypeTiresController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\VehicleGeneralInformationController.cs" />
@@ -408,16 +403,6 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\FileUpload\Index.cshtml" />
     <Content Include="Views\FileUpload\Show.cshtml" />
-    <Content Include="Views\AuthoritiesTransit\Create.cshtml" />
-    <Content Include="Views\AuthoritiesTransit\Index.cshtml" />
-    <Content Include="Views\TypeTires\Index.cshtml" />
-    <Content Include="Views\TypeTires\Create.cshtml" />
-    <Content Include="Views\Brands\Index.cshtml" />
-    <Content Include="Views\Brands\Create.cshtml" />
-    <Content Include="Views\TypeFuels\Index.cshtml" />
-    <Content Include="Views\TypeFuels\Create.cshtml" />
-    <Content Include="Views\TypeServices\Create.cshtml" />
-    <Content Include="Views\TypeServices\Index.cshtml" />
     <None Include="Web References\WSTest\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

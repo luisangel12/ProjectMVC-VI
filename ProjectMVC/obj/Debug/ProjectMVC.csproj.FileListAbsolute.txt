@@ -286,8 +286,6 @@ C:\Users\Luis Angel\source\repos\ProjectMVC-development\ProjectMVC\obj\Debug\Pro
 C:\Users\Luis Angel\source\repos\ProjectMVC-development\ProjectMVC\obj\Debug\ProjectMVC.csproj.CopyComplete
 C:\Users\Luis Angel\source\repos\ProjectMVC-development\ProjectMVC\obj\Debug\ProjectMVC.dll
 C:\Users\Luis Angel\source\repos\ProjectMVC-development\ProjectMVC\obj\Debug\ProjectMVC.pdb
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC\obj\Debug\ProjectMVC.csprojAssemblyReference.cache
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC\obj\Debug\ProjectMVC.csproj.CoreCompileInputs.cache
 C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC\bin\ProjectMVC.dll.config
 C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC\bin\ProjectMVC.dll
 C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC\bin\ProjectMVC.pdb
@@ -427,6 +425,8 @@ C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC\bin\es\EntityFramework
 C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
 C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC\obj\Debug\ProjectMVC.csprojAssemblyReference.cache
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC\obj\Debug\ProjectMVC.csproj.CoreCompileInputs.cache
 C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC\obj\Debug\ProjectMVC.csproj.CopyComplete
 C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC\obj\Debug\ProjectMVC.dll
 C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC\obj\Debug\ProjectMVC.pdb

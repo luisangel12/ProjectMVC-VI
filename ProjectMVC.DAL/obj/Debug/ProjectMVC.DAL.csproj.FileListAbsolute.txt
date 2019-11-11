@@ -35,7 +35,6 @@ C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\EntityFr
 C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\es\EntityFramework.resources.dll
 C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\es\EntityFramework.SqlServer.resources.dll
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.csprojAssemblyReference.cache
 C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.csproj.CoreCompileInputs.cache
 C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.csproj.CopyComplete
 C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.dll
