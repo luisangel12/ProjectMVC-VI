@@ -17,7 +17,7 @@ namespace ProjectMVC.Logica.BL
             int? tenantId,
             string userId = null)
         {
-            DAL.Models.ProjectMVCEntities db = new DAL.Models.ProjectMVCEntities();
+            DAL.Models.ProjectMVCEntities2 db = new DAL.Models.ProjectMVCEntities2();
 
             var listProjectsEF = (from _projects in db.Projects
                                   select _projects);
@@ -59,9 +59,9 @@ namespace ProjectMVC.Logica.BL
             DateTime? expectedCompletionDate,
             int? tenantId)
         {
-            DAL.Models.ProjectMVCEntities db = new DAL.Models.ProjectMVCEntities();
+            DAL.Models.ProjectMVCEntities2 db = new DAL.Models.ProjectMVCEntities2();
 
-            db.Projects.Add(new DAL.Models.Projects
+            db.Projects.Add(new DAL.Models.Project
             {
                 Title = title,
                 Details = details,
@@ -90,7 +90,7 @@ namespace ProjectMVC.Logica.BL
             string details,
             DateTime? expectedCompletionDate)
         {
-            DAL.Models.ProjectMVCEntities db = new DAL.Models.ProjectMVCEntities();
+            DAL.Models.ProjectMVCEntities2 db = new DAL.Models.ProjectMVCEntities2();
 
             var project = db.Projects.FirstOrDefault(x => x.Id == id);
 
@@ -108,7 +108,7 @@ namespace ProjectMVC.Logica.BL
         /// <param name="id"></param>
         public void DeleteProjects(int? id)
         {
-            DAL.Models.ProjectMVCEntities db = new DAL.Models.ProjectMVCEntities();
+            DAL.Models.ProjectMVCEntities2 db = new DAL.Models.ProjectMVCEntities2();
 
             var project = db.Projects.FirstOrDefault(x => x.Id == id);
             db.Projects.Remove(project);

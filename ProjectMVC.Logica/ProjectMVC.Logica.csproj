@@ -54,11 +54,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\Activities.cs" />
+    <Compile Include="BL\Cyties.cs" />
     <Compile Include="BL\Priorities.cs" />
     <Compile Include="BL\Projects.cs" />
     <Compile Include="BL\States.cs" />
     <Compile Include="BL\Tasks.cs" />
     <Compile Include="BL\Tenants.cs" />
+    <Compile Include="BL\TypeDocument.cs" />
     <Compile Include="BL\TypeServices.cs" />
     <Compile Include="BL\Users.cs" />
     <Compile Include="BL\Utils.cs" />

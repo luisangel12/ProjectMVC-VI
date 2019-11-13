@@ -151,6 +151,15 @@ namespace IdentitySample.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+           
+
+
+            ProjectMVC.Logica.BL.TypeDocument typeDocument = new ProjectMVC.Logica.BL.TypeDocument();
+            ViewBag.TypeDocument = typeDocument.GetTypeDocument();
+
+            ProjectMVC.Logica.BL.Cyties cities = new ProjectMVC.Logica.BL.Cyties();
+            ViewBag.Cyties = cities.GetCities();
+
             return View();
         }
 
@@ -161,6 +170,13 @@ namespace IdentitySample.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+
+            ProjectMVC.Logica.BL.TypeDocument typeDocument = new ProjectMVC.Logica.BL.TypeDocument();
+            ViewBag.TypeDocument = typeDocument.GetTypeDocument();
+
+            ProjectMVC.Logica.BL.Cyties cities = new ProjectMVC.Logica.BL.Cyties();
+            ViewBag.Cyties = cities.GetCities();
+
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
@@ -173,19 +189,38 @@ namespace IdentitySample.Controllers
                             + "before you can log in.";
 
                     #region Tenant
-                    var _context = new ProjectMVC.DAL.Models.ProjectMVCEntities();
+                    var _context = new ProjectMVC.DAL.Models.ProjectMVCEntities2();
 
-                    _context.Tenants.Add(new ProjectMVC.DAL.Models.Tenants
+                    var aspNetUser = _context.AspNetUsers.Where(x => x.UserName.Equals(model.Email)).FirstOrDefault();
+                    //aspNetUser.TenantId = _context.Customers.Max(x => x.Id);
+
+                    _context.Customers.Add(new ProjectMVC.DAL.Models.Customer
                     {
-                        Name = model.Organization,
-                        CreatedAt = DateTime.Now,
-                        Plan = model.Plan.ToString()
-                    });
+                        DocumentTypeId = model.DocumentTypeId,
+                        DocumentNumber = model.DocumentNumber,
+                        FirstName = model.FirstName,
+                        Surname = model.Surname,
+                        Telephone = model.Telephone,
+                        CityId = model.CityId,
+                        UserId = aspNetUser.Id
+                    });             
+
+                    //_context.Tenants.Add(new ProjectMVC.DAL.Models.Tenants
+                    //{
+                    //    Name = model.Organization,
+                    //    CreatedAt = DateTime.Now,
+                    //    Plan = model.Plan.ToString()
+                    //});
 
                     _context.SaveChanges();
 
-                    var aspNetUser = _context.AspNetUsers.Where(x => x.UserName.Equals(model.Email)).FirstOrDefault();
-                    aspNetUser.TenantId = _context.Tenants.Max(x => x.Id);
+                    //var aspNetUser = _context.AspNetUsers.Where(x => x.UserName.Equals(model.Email)).FirstOrDefault();
+                    //aspNetUser.TenantId = _context.Customers.Max(x => x.Id);
+
+                    //var custome = _context.Customer.Where(x => x.DocumentTypeId.Equals(model.DocumentTypeId)).FirstOrDefault();
+
+                  
+
                     _context.SaveChanges();
 
                     var userResult = await UserManager.FindByNameAsync(model.Email);

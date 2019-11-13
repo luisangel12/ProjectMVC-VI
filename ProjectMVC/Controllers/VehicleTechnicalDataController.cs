@@ -9,12 +9,12 @@ namespace ProjectMVC.Controllers
 {
     public class VehicleTechnicalDataController : Controller
     {
-        private ProjectMVCEntities db = new ProjectMVCEntities();
+        private ProjectMVCEntities2 db = new ProjectMVCEntities2();
 
         // GET: VehicleTechnicalData
         public ActionResult Index()
         {
-            return View(db.VehicleTechnicalData.ToList());
+            return View(db.VehicleTechnicalDatas.ToList());
         }
 
         // GET: VehicleTechnicalData/Create
@@ -32,7 +32,7 @@ namespace ProjectMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.VehicleTechnicalData.Add(vehicleTechnicalData);
+                db.VehicleTechnicalDatas.Add(vehicleTechnicalData);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

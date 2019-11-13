@@ -1,0 +1,885 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjectMVCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Activity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="Tasks" Relationship="Self.FK_Tasks_Activities" FromRole="Activities" ToRole="Tasks" />
+  </EntityType>
+  <EntityType Name="Artifact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectId" Type="Int32" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Project" Relationship="Self.FK_Artifacts_Projects" FromRole="Artifacts" ToRole="Projects" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="Members" Relationship="Self.FK__Members__UserId__693CA210" FromRole="AspNetUsers" ToRole="Members" />
+    <NavigationProperty Name="UserProjects" Relationship="Self.FK__UserProje__UserI__6EF57B66" FromRole="AspNetUsers" ToRole="UserProjects" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Cities" FromRole="AspNetUsers" ToRole="Customer" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="AuthoritiesTransit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="VehicleGeneralInformations" Relationship="Self.FK_VehicleGeneralInformation_AuthoritiesTransit" FromRole="AuthoritiesTransit" ToRole="VehicleGeneralInformation" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="VehicleGeneralInformations" Relationship="Self.FK_VehicleGeneralInformation_Brands" FromRole="Brands" ToRole="VehicleGeneralInformation" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ClassVehicle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="Vehicles" Relationship="Self.FK_Vehicles_ClassVehicle" FromRole="ClassVehicle" ToRole="Vehicles" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocumentTypeId" Type="Int32" />
+    <Property Name="DocumentNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SecondName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SecondSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Customer_Cities" FromRole="Customer" ToRole="AspNetUsers" />
+    <NavigationProperty Name="DocumentType" Relationship="Self.FK_Customer_DocumentTypes" FromRole="Customer" ToRole="DocumentTypes" />
+    <NavigationProperty Name="Vehicles" Relationship="Self.FK_Vehicles_Customer" FromRole="Customer" ToRole="Vehicles" />
+  </EntityType>
+  <EntityType Name="DocumentType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_DocumentTypes" FromRole="DocumentTypes" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Match">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeamGuestId" Type="Int32" />
+    <Property Name="TeamHostId" Type="Int32" />
+    <Property Name="HostGoals" Type="Int32" />
+    <Property Name="GuestGoals" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Members__UserId__693CA210" FromRole="Members" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="Priority">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="Tasks" Relationship="Self.FK_Tasks_Priorities" FromRole="Priorities" ToRole="Tasks" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Details" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ExpectedCompletionDate" Type="DateTime" Precision="3" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Artifacts" Relationship="Self.FK_Artifacts_Projects" FromRole="Projects" ToRole="Artifacts" />
+    <NavigationProperty Name="Tenant" Relationship="Self.FK_Projects_Tenants" FromRole="Projects" ToRole="Tenants" />
+    <NavigationProperty Name="Tasks" Relationship="Self.FK_Tasks_Projects" FromRole="Projects" ToRole="Tasks" />
+    <NavigationProperty Name="UserProjects" Relationship="Self.FK_UserProjects_Projects" FromRole="Projects" ToRole="UserProjects" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="Tasks" Relationship="Self.FK_Tasks_States" FromRole="States" ToRole="Tasks" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Details" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ExpirationDate" Type="DateTime" Precision="3" />
+    <Property Name="IsCompleted" Type="Boolean" />
+    <Property Name="Effort" Type="Int32" />
+    <Property Name="RemainingWork" Type="Int32" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="ActivityId" Type="Int32" />
+    <Property Name="PriorityId" Type="Int32" />
+    <Property Name="ProjectId" Type="Int32" />
+    <NavigationProperty Name="Activity" Relationship="Self.FK_Tasks_Activities" FromRole="Tasks" ToRole="Activities" />
+    <NavigationProperty Name="Priority" Relationship="Self.FK_Tasks_Priorities" FromRole="Tasks" ToRole="Priorities" />
+    <NavigationProperty Name="Project" Relationship="Self.FK_Tasks_Projects" FromRole="Tasks" ToRole="Projects" />
+    <NavigationProperty Name="State" Relationship="Self.FK_Tasks_States" FromRole="Tasks" ToRole="States" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tenant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <Property Name="Plan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Projects" Relationship="Self.FK_Projects_Tenants" FromRole="Tenants" ToRole="Projects" />
+  </EntityType>
+  <EntityType Name="TypeFuel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="VehicleFuels" Relationship="Self.FK_VehicleFuels_TypeFuels" FromRole="TypeFuels" ToRole="VehicleFuels" />
+    <NavigationProperty Name="VehicleGeneralInformations" Relationship="Self.FK_VehicleGeneralInformation_TypeFuels" FromRole="TypeFuels" ToRole="VehicleGeneralInformation" />
+  </EntityType>
+  <EntityType Name="TypeMaintenance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="VehicleMaintenances" Relationship="Self.FK_VehicleMaintenance_TypeMaintenance" FromRole="TypeMaintenance" ToRole="VehicleMaintenance" />
+  </EntityType>
+  <EntityType Name="TypeService">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="Vehicles" Relationship="Self.FK_Vehicles_TypeServices" FromRole="TypeServices" ToRole="Vehicles" />
+  </EntityType>
+  <EntityType Name="TypeTire">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="VehicleGeneralInformations" Relationship="Self.FK_VehicleGeneralInformation_TypeTires" FromRole="TypeTires" ToRole="VehicleGeneralInformation" />
+  </EntityType>
+  <EntityType Name="UserProject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectId" Type="Int32" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK__UserProje__UserI__6EF57B66" FromRole="UserProjects" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Project" Relationship="Self.FK_UserProjects_Projects" FromRole="UserProjects" ToRole="Projects" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LockoutEnabled" Type="Boolean" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VehicleFuel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeFuelId" Type="Int32" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="LiterFuel" Type="Double" />
+    <Property Name="FuelDate" Type="DateTime" Precision="3" />
+    <Property Name="VehicleId" Type="Int32" />
+    <NavigationProperty Name="TypeFuel" Relationship="Self.FK_VehicleFuels_TypeFuels" FromRole="VehicleFuels" ToRole="TypeFuels" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK_VehicleFuels_Vehicles" FromRole="VehicleFuels" ToRole="Vehicles" />
+  </EntityType>
+  <EntityType Name="VehicleGeneralInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrandId" Type="Int32" />
+    <Property Name="Line" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Model" Type="Int32" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SerialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EngineNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChassisNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cylinder" Type="Int32" />
+    <Property Name="TypeBody" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TypeFuelId" Type="Int32" />
+    <Property Name="InitialEnrollmentDate" Type="DateTime" Precision="3" />
+    <Property Name="NroDoors" Type="Int32" />
+    <Property Name="TypeTireId" Type="Int32" />
+    <Property Name="AuthoritiesTransitId" Type="Int32" />
+    <Property Name="VehicleId" Type="Int32" />
+    <NavigationProperty Name="AuthoritiesTransit" Relationship="Self.FK_VehicleGeneralInformation_AuthoritiesTransit" FromRole="VehicleGeneralInformation" ToRole="AuthoritiesTransit" />
+    <NavigationProperty Name="Brand" Relationship="Self.FK_VehicleGeneralInformation_Brands" FromRole="VehicleGeneralInformation" ToRole="Brands" />
+    <NavigationProperty Name="TypeFuel" Relationship="Self.FK_VehicleGeneralInformation_TypeFuels" FromRole="VehicleGeneralInformation" ToRole="TypeFuels" />
+    <NavigationProperty Name="TypeTire" Relationship="Self.FK_VehicleGeneralInformation_TypeTires" FromRole="VehicleGeneralInformation" ToRole="TypeTires" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK_VehicleGeneralInformation_Vehicles" FromRole="VehicleGeneralInformation" ToRole="Vehicles" />
+  </EntityType>
+  <EntityType Name="VehicleMaintenance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MaintenanceDate" Type="DateTime" Precision="3" />
+    <Property Name="CurrentMileage" Type="Double" />
+    <Property Name="NextMaintenanceDate" Type="DateTime" Precision="3" />
+    <Property Name="TypeMaintenanceId" Type="Int32" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="VehicleId" Type="Int32" />
+    <NavigationProperty Name="TypeMaintenance" Relationship="Self.FK_VehicleMaintenance_TypeMaintenance" FromRole="VehicleMaintenance" ToRole="TypeMaintenance" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK_VehicleMaintenance_Vehicles" FromRole="VehicleMaintenance" ToRole="Vehicles" />
+  </EntityType>
+  <EntityType Name="VehiclePolicySOAT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PolicyNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpeditionDate" Type="DateTime" Precision="3" />
+    <Property Name="DateStartValidity" Type="DateTime" Precision="3" />
+    <Property Name="EndDateValidity" Type="DateTime" Precision="3" />
+    <Property Name="SOATIssueEntity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="Boolean" />
+    <Property Name="VehicleId" Type="Int32" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK_VehiclePolicySOAT_Vehicles" FromRole="VehiclePolicySOAT" ToRole="Vehicles" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="C_" />
+    </Key>
+    <Property Name="C_" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LicensePlate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NroTransitLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StateVehicle" Type="Boolean" />
+    <Property Name="TypeServiceId" Type="Int32" />
+    <Property Name="ClassVehicleId" Type="Int32" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerId" Type="Int32" />
+    <NavigationProperty Name="ClassVehicle" Relationship="Self.FK_Vehicles_ClassVehicle" FromRole="Vehicles" ToRole="ClassVehicle" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Vehicles_Customer" FromRole="Vehicles" ToRole="Customer" />
+    <NavigationProperty Name="TypeService" Relationship="Self.FK_Vehicles_TypeServices" FromRole="Vehicles" ToRole="TypeServices" />
+    <NavigationProperty Name="VehicleFuels" Relationship="Self.FK_VehicleFuels_Vehicles" FromRole="Vehicles" ToRole="VehicleFuels" />
+    <NavigationProperty Name="VehicleGeneralInformations" Relationship="Self.FK_VehicleGeneralInformation_Vehicles" FromRole="Vehicles" ToRole="VehicleGeneralInformation" />
+    <NavigationProperty Name="VehicleMaintenances" Relationship="Self.FK_VehicleMaintenance_Vehicles" FromRole="Vehicles" ToRole="VehicleMaintenance" />
+    <NavigationProperty Name="VehiclePolicySOATs" Relationship="Self.FK_VehiclePolicySOAT_Vehicles" FromRole="Vehicles" ToRole="VehiclePolicySOAT" />
+    <NavigationProperty Name="VehicleTechnicalDatas" Relationship="Self.FK_VehicleTechnicalData_Vehicles" FromRole="Vehicles" ToRole="VehicleTechnicalData" />
+  </EntityType>
+  <EntityType Name="VehicleTechnicalData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CapacityLoad" Type="Double" />
+    <Property Name="PassengerCapacity" Type="Int32" />
+    <Property Name="GVWR" Type="Double" />
+    <Property Name="CapacityPassengersSitting" Type="Int32" />
+    <Property Name="NumberAxes" Type="Int32" />
+    <Property Name="VehicleId" Type="Int32" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK_VehicleTechnicalData_Vehicles" FromRole="VehicleTechnicalData" ToRole="Vehicles" />
+  </EntityType>
+  <Association Name="FK_Tasks_Activities">
+    <End Role="Activities" Type="Self.Activity" Multiplicity="0..1" />
+    <End Role="Tasks" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Activities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="ActivityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Artifacts_Projects">
+    <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+    <End Role="Artifacts" Type="Self.Artifact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Artifacts">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Members__UserId__693CA210">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="Members" Type="Self.Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Members">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserProje__UserI__6EF57B66">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="UserProjects" Type="Self.UserProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProjects">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_Cities">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleGeneralInformation_AuthoritiesTransit">
+    <End Role="AuthoritiesTransit" Type="Self.AuthoritiesTransit" Multiplicity="0..1" />
+    <End Role="VehicleGeneralInformation" Type="Self.VehicleGeneralInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AuthoritiesTransit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VehicleGeneralInformation">
+        <PropertyRef Name="AuthoritiesTransitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleGeneralInformation_Brands">
+    <End Role="Brands" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="VehicleGeneralInformation" Type="Self.VehicleGeneralInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brands">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VehicleGeneralInformation">
+        <PropertyRef Name="BrandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_ClassVehicle">
+    <End Role="ClassVehicle" Type="Self.ClassVehicle" Multiplicity="0..1" />
+    <End Role="Vehicles" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClassVehicle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="ClassVehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_DocumentTypes">
+    <End Role="DocumentTypes" Type="Self.DocumentType" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="DocumentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Vehicles" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_Priorities">
+    <End Role="Priorities" Type="Self.Priority" Multiplicity="0..1" />
+    <End Role="Tasks" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Priorities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="PriorityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Projects_Tenants">
+    <End Role="Tenants" Type="Self.Tenant" Multiplicity="0..1" />
+    <End Role="Projects" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_Projects">
+    <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+    <End Role="Tasks" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProjects_Projects">
+    <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+    <End Role="UserProjects" Type="Self.UserProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProjects">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_States">
+    <End Role="States" Type="Self.State" Multiplicity="0..1" />
+    <End Role="Tasks" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleFuels_TypeFuels">
+    <End Role="TypeFuels" Type="Self.TypeFuel" Multiplicity="0..1" />
+    <End Role="VehicleFuels" Type="Self.VehicleFuel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeFuels">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VehicleFuels">
+        <PropertyRef Name="TypeFuelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleGeneralInformation_TypeFuels">
+    <End Role="TypeFuels" Type="Self.TypeFuel" Multiplicity="0..1" />
+    <End Role="VehicleGeneralInformation" Type="Self.VehicleGeneralInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeFuels">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VehicleGeneralInformation">
+        <PropertyRef Name="TypeFuelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleMaintenance_TypeMaintenance">
+    <End Role="TypeMaintenance" Type="Self.TypeMaintenance" Multiplicity="0..1" />
+    <End Role="VehicleMaintenance" Type="Self.VehicleMaintenance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeMaintenance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VehicleMaintenance">
+        <PropertyRef Name="TypeMaintenanceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_TypeServices">
+    <End Role="TypeServices" Type="Self.TypeService" Multiplicity="0..1" />
+    <End Role="Vehicles" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeServices">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="TypeServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleGeneralInformation_TypeTires">
+    <End Role="TypeTires" Type="Self.TypeTire" Multiplicity="0..1" />
+    <End Role="VehicleGeneralInformation" Type="Self.VehicleGeneralInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeTires">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VehicleGeneralInformation">
+        <PropertyRef Name="TypeTireId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleFuels_Vehicles">
+    <End Role="Vehicles" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="VehicleFuels" Type="Self.VehicleFuel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicles">
+        <PropertyRef Name="C_" />
+      </Principal>
+      <Dependent Role="VehicleFuels">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleGeneralInformation_Vehicles">
+    <End Role="Vehicles" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="VehicleGeneralInformation" Type="Self.VehicleGeneralInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicles">
+        <PropertyRef Name="C_" />
+      </Principal>
+      <Dependent Role="VehicleGeneralInformation">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleMaintenance_Vehicles">
+    <End Role="Vehicles" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="VehicleMaintenance" Type="Self.VehicleMaintenance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicles">
+        <PropertyRef Name="C_" />
+      </Principal>
+      <Dependent Role="VehicleMaintenance">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehiclePolicySOAT_Vehicles">
+    <End Role="Vehicles" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="VehiclePolicySOAT" Type="Self.VehiclePolicySOAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicles">
+        <PropertyRef Name="C_" />
+      </Principal>
+      <Dependent Role="VehiclePolicySOAT">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleTechnicalData_Vehicles">
+    <End Role="Vehicles" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="VehicleTechnicalData" Type="Self.VehicleTechnicalData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicles">
+        <PropertyRef Name="C_" />
+      </Principal>
+      <Dependent Role="VehicleTechnicalData">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="ProjectMVCEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Activities" EntityType="Self.Activity" />
+    <EntitySet Name="Artifacts" EntityType="Self.Artifact" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="AuthoritiesTransits" EntityType="Self.AuthoritiesTransit" />
+    <EntitySet Name="Brands" EntityType="Self.Brand" />
+    <EntitySet Name="Cities" EntityType="Self.City" />
+    <EntitySet Name="ClassVehicles" EntityType="Self.ClassVehicle" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="DocumentTypes" EntityType="Self.DocumentType" />
+    <EntitySet Name="Matches" EntityType="Self.Match" />
+    <EntitySet Name="Members" EntityType="Self.Member" />
+    <EntitySet Name="Priorities" EntityType="Self.Priority" />
+    <EntitySet Name="Projects" EntityType="Self.Project" />
+    <EntitySet Name="States" EntityType="Self.State" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Tasks" EntityType="Self.Task" />
+    <EntitySet Name="Teams" EntityType="Self.Team" />
+    <EntitySet Name="Tenants" EntityType="Self.Tenant" />
+    <EntitySet Name="TypeFuels" EntityType="Self.TypeFuel" />
+    <EntitySet Name="TypeMaintenances" EntityType="Self.TypeMaintenance" />
+    <EntitySet Name="TypeServices" EntityType="Self.TypeService" />
+    <EntitySet Name="TypeTires" EntityType="Self.TypeTire" />
+    <EntitySet Name="UserProjects" EntityType="Self.UserProject" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="VehicleFuels" EntityType="Self.VehicleFuel" />
+    <EntitySet Name="VehicleGeneralInformations" EntityType="Self.VehicleGeneralInformation" />
+    <EntitySet Name="VehicleMaintenances" EntityType="Self.VehicleMaintenance" />
+    <EntitySet Name="VehiclePolicySOATs" EntityType="Self.VehiclePolicySOAT" />
+    <EntitySet Name="Vehicles" EntityType="Self.Vehicle" />
+    <EntitySet Name="VehicleTechnicalDatas" EntityType="Self.VehicleTechnicalData" />
+    <AssociationSet Name="FK_Tasks_Activities" Association="Self.FK_Tasks_Activities">
+      <End Role="Activities" EntitySet="Activities" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Artifacts_Projects" Association="Self.FK_Artifacts_Projects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Artifacts" EntitySet="Artifacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Members__UserId__693CA210" Association="Self.FK__Members__UserId__693CA210">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Members" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserProje__UserI__6EF57B66" Association="Self.FK__UserProje__UserI__6EF57B66">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="UserProjects" EntitySet="UserProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_Cities" Association="Self.FK_Customer_Cities">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleGeneralInformation_AuthoritiesTransit" Association="Self.FK_VehicleGeneralInformation_AuthoritiesTransit">
+      <End Role="AuthoritiesTransit" EntitySet="AuthoritiesTransits" />
+      <End Role="VehicleGeneralInformation" EntitySet="VehicleGeneralInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleGeneralInformation_Brands" Association="Self.FK_VehicleGeneralInformation_Brands">
+      <End Role="Brands" EntitySet="Brands" />
+      <End Role="VehicleGeneralInformation" EntitySet="VehicleGeneralInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_ClassVehicle" Association="Self.FK_Vehicles_ClassVehicle">
+      <End Role="ClassVehicle" EntitySet="ClassVehicles" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_DocumentTypes" Association="Self.FK_Customer_DocumentTypes">
+      <End Role="DocumentTypes" EntitySet="DocumentTypes" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_Customer" Association="Self.FK_Vehicles_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_Priorities" Association="Self.FK_Tasks_Priorities">
+      <End Role="Priorities" EntitySet="Priorities" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Projects_Tenants" Association="Self.FK_Projects_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_Projects" Association="Self.FK_Tasks_Projects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProjects_Projects" Association="Self.FK_UserProjects_Projects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="UserProjects" EntitySet="UserProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_States" Association="Self.FK_Tasks_States">
+      <End Role="States" EntitySet="States" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleFuels_TypeFuels" Association="Self.FK_VehicleFuels_TypeFuels">
+      <End Role="TypeFuels" EntitySet="TypeFuels" />
+      <End Role="VehicleFuels" EntitySet="VehicleFuels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleGeneralInformation_TypeFuels" Association="Self.FK_VehicleGeneralInformation_TypeFuels">
+      <End Role="TypeFuels" EntitySet="TypeFuels" />
+      <End Role="VehicleGeneralInformation" EntitySet="VehicleGeneralInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleMaintenance_TypeMaintenance" Association="Self.FK_VehicleMaintenance_TypeMaintenance">
+      <End Role="TypeMaintenance" EntitySet="TypeMaintenances" />
+      <End Role="VehicleMaintenance" EntitySet="VehicleMaintenances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_TypeServices" Association="Self.FK_Vehicles_TypeServices">
+      <End Role="TypeServices" EntitySet="TypeServices" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleGeneralInformation_TypeTires" Association="Self.FK_VehicleGeneralInformation_TypeTires">
+      <End Role="TypeTires" EntitySet="TypeTires" />
+      <End Role="VehicleGeneralInformation" EntitySet="VehicleGeneralInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleFuels_Vehicles" Association="Self.FK_VehicleFuels_Vehicles">
+      <End Role="Vehicles" EntitySet="Vehicles" />
+      <End Role="VehicleFuels" EntitySet="VehicleFuels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleGeneralInformation_Vehicles" Association="Self.FK_VehicleGeneralInformation_Vehicles">
+      <End Role="Vehicles" EntitySet="Vehicles" />
+      <End Role="VehicleGeneralInformation" EntitySet="VehicleGeneralInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleMaintenance_Vehicles" Association="Self.FK_VehicleMaintenance_Vehicles">
+      <End Role="Vehicles" EntitySet="Vehicles" />
+      <End Role="VehicleMaintenance" EntitySet="VehicleMaintenances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehiclePolicySOAT_Vehicles" Association="Self.FK_VehiclePolicySOAT_Vehicles">
+      <End Role="Vehicles" EntitySet="Vehicles" />
+      <End Role="VehiclePolicySOAT" EntitySet="VehiclePolicySOATs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleTechnicalData_Vehicles" Association="Self.FK_VehicleTechnicalData_Vehicles">
+      <End Role="Vehicles" EntitySet="Vehicles" />
+      <End Role="VehicleTechnicalData" EntitySet="VehicleTechnicalDatas" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

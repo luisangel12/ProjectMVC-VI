@@ -25,18 +25,18 @@ namespace ProjectMVC.Controllers
             return View(listActivities);
 
         }
-        public ActionResult Create(Activities activities)
-        {
-            if (ModelState.IsValid)
-            {
-                WSTest.Test test = new WSTest.Test();
-                test.CreateActivity(activities.Name);
+        //public ActionResult Create(Activities activities)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        WSTest.Test test = new WSTest.Test();
+        //        test.CreateActivity(activities.Name);
 
-                return RedirectToAction("Index");
-            }
+        //        return RedirectToAction("Index");
+        //    }
 
-            return View(activities);
-        }
+        //    return View(activities);
+        //}
         
         // GET: Activities/Details/5
         public ActionResult Details(int? id)

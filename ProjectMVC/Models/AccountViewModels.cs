@@ -80,15 +80,37 @@ namespace IdentitySample.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [Required(ErrorMessage = "The field Organization is required")]
-        [Display(Name = "Organization")]
-        public string Organization { get; set; }
 
-        [Required(ErrorMessage = "The field Plan is required")]
-        [Display(Name = "Plan")]
-        public Plan Plan { get; set; }
+        //Datos cliente ->
+
+        [Required(ErrorMessage = "The field DocumentTypeId is required")]
+        [Display(Name = "Tipo de documento")]
+        public int? DocumentTypeId { get; set; }
+
+        [Required(ErrorMessage = "The field DocumentNumber is required")]
+        [Display(Name = "No. documento")]
+        public string DocumentNumber { get; set; }
+
+        [Required(ErrorMessage = "The field Name is required")]
+        [Display(Name = "Nombre")]
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "The field Name is required")]
+        [Display(Name = "Apellido")]
+        public string Surname { get; set; }
+
+        [Required(ErrorMessage = "The field Telephone is required")]
+        [Display(Name = "Telefono")]
+        public string Telephone { get; set; }
+
+        [Required(ErrorMessage = "The field Cyti is required")]
+        [Display(Name = "Ciudad")]
+        public int? CityId { get; set; }
+
+
+
     }
-
+   
     public enum Plan
     {
         Free,

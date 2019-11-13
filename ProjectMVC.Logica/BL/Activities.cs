@@ -11,7 +11,7 @@ namespace ProjectMVC.Logica.BL
         /// <returns></returns>
         public List<Models.DB.Activities> GetActivities()
         {
-            DAL.Models.ProjectMVCEntities _context = new DAL.Models.ProjectMVCEntities();
+            DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
             var listActivities = (from _activities in _context.Activities
                                   where _activities.Active == true
                                   select new Models.DB.Activities

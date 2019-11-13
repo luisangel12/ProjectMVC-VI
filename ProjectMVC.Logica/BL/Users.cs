@@ -15,7 +15,7 @@ namespace ProjectMVC.Logica.BL
 
 
         {
-            ProjectMVC.DAL.Models.ProjectMVCEntities db = new ProjectMVC.DAL.Models.ProjectMVCEntities();
+            ProjectMVC.DAL.Models.ProjectMVCEntities2 db = new ProjectMVC.DAL.Models.ProjectMVCEntities2();
 
             var Users = db. Users.FirstOrDefault(x => x.Id == id);
             db. Users.Remove(Users);

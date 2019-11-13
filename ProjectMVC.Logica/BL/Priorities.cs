@@ -11,7 +11,7 @@ namespace ProjectMVC.Logica.BL
         /// <returns></returns>
         public List<Models.DB.Priorities> GetPriorities()
         {
-            DAL.Models.ProjectMVCEntities _context = new DAL.Models.ProjectMVCEntities();
+            DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
             var listPriorities = (from _priorities in _context.Priorities
                                   where _priorities.Active == true
                                   select new Models.DB.Priorities

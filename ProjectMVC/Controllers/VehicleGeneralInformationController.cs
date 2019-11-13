@@ -9,12 +9,12 @@ namespace ProjectMVC.Controllers
 {
     public class VehicleGeneralInformationController : Controller
     {
-        private ProjectMVCEntities db = new ProjectMVCEntities();
+        private ProjectMVCEntities2 db = new ProjectMVCEntities2();
 
         // GET: VehicleGeneralInformation
         public ActionResult Index()
         {
-            return View(db.VehicleGeneralInformation.ToList());
+            return View(db.VehicleGeneralInformations.ToList());
         }
 
         // GET: VehicleGeneralInformation/Create
@@ -32,7 +32,7 @@ namespace ProjectMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.VehicleGeneralInformation.Add(vehicleGeneralInformation);
+                db.VehicleGeneralInformations.Add(vehicleGeneralInformation);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

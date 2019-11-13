@@ -15,7 +15,7 @@ namespace ProjectMVC.Logica.BL
         public List<Models.DB.Tasks> GetTasks(int? projectId,
             int? id)
         {
-            DAL.Models.ProjectMVCEntities _context = new DAL.Models.ProjectMVCEntities();
+            DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
 
             var listTasks = (from _tasks in _context.Tasks
                              join _states in _context.States on _tasks.StateId equals _states.Id
@@ -80,9 +80,9 @@ namespace ProjectMVC.Logica.BL
             int? priorityId,
             int? projectId)
         {
-            DAL.Models.ProjectMVCEntities _context = new DAL.Models.ProjectMVCEntities();
+            DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
 
-            _context.Tasks.Add(new DAL.Models.Tasks
+            _context.Tasks.Add(new DAL.Models.Task
             {
                 Title = title,
                 Details = details,

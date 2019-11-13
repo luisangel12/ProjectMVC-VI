@@ -14,7 +14,7 @@ namespace ProjectMVC.Logica.BL
         /// <returns></returns>
         public List<Models.DB.Vehicles> GetVehicles()
         {
-            DAL.Models.ProjectMVCEntities _context = new DAL.Models.ProjectMVCEntities();
+            DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
 
             var listVehicles = (from _vehicles in _context.Vehicles
                                     //join _states in _context.States on _vehicles.Sta equals _states.Id
@@ -22,7 +22,7 @@ namespace ProjectMVC.Logica.BL
                                     //join _priorities in _context.Priorities on _vehicles.PriorityId equals _priorities.Id
                                 select new Models.DB.Vehicles
                                 {
-                                    Id = _vehicles.Id,
+                                    //Id = _vehicles.Id,
                                     LicensePlate = _vehicles.LicensePlate,
                                     NroTransitLicense = _vehicles.NroTransitLicense,
                                     StateVehicle = _vehicles.StateVehicle,
@@ -61,11 +61,11 @@ namespace ProjectMVC.Logica.BL
             string image,
             int? customerId)
         {
-            DAL.Models.ProjectMVCEntities _context = new DAL.Models.ProjectMVCEntities();
+            DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
 
-            _context.Vehicles.Add(new DAL.Models.Vehicles
+            _context.Vehicles.Add(new DAL.Models.Vehicle
             {
-                Id = id,
+                //Id = id,
                 LicensePlate = licensePlate,
                 NroTransitLicense = nroTransitLicense,
                 StateVehicle = stateVehicle,

@@ -1,0 +1,866 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjectMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Activities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="Artifacts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Key" Type="varchar" MaxLength="50" />
+    <Property Name="ProjectId" Type="int" />
+    <Property Name="CreatedAt" Type="datetime" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AuthoritiesTransit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="Brands">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="ClassVehicle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocumentTypeId" Type="int" />
+    <Property Name="DocumentNumber" Type="varchar" MaxLength="50" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="SecondName" Type="varchar" MaxLength="50" />
+    <Property Name="Surname" Type="varchar" MaxLength="50" />
+    <Property Name="SecondSurname" Type="varchar" MaxLength="50" />
+    <Property Name="Telephone" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="100" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="Matches">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeamGuestId" Type="int" />
+    <Property Name="TeamHostId" Type="int" />
+    <Property Name="HostGoals" Type="int" />
+    <Property Name="GuestGoals" Type="int" />
+  </EntityType>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedAt" Type="datetime" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Priorities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Details" Type="varchar" MaxLength="100" />
+    <Property Name="ExpectedCompletionDate" Type="datetime" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="CreatedAt" Type="datetime" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tasks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Details" Type="varchar" MaxLength="100" />
+    <Property Name="ExpirationDate" Type="datetime" />
+    <Property Name="IsCompleted" Type="bit" />
+    <Property Name="Effort" Type="int" />
+    <Property Name="RemainingWork" Type="int" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="ActivityId" Type="int" />
+    <Property Name="PriorityId" Type="int" />
+    <Property Name="ProjectId" Type="int" />
+  </EntityType>
+  <EntityType Name="Teams">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tenants">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedAt" Type="datetime" />
+    <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="Plan" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TypeFuels">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="TypeMaintenance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="TypeServices">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="TypeTires">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="UserProjects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectId" Type="int" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+    <Property Name="CreatedAt" Type="datetime" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Password" Type="varchar(max)" />
+    <Property Name="LockoutEnabled" Type="bit" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="VehicleFuels">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeFuelId" Type="int" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="LiterFuel" Type="float" />
+    <Property Name="FuelDate" Type="datetime" />
+    <Property Name="VehicleId" Type="int" />
+  </EntityType>
+  <EntityType Name="VehicleGeneralInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BrandId" Type="int" />
+    <Property Name="Line" Type="varchar" MaxLength="50" />
+    <Property Name="Model" Type="int" />
+    <Property Name="Color" Type="varchar" MaxLength="50" />
+    <Property Name="SerialNumber" Type="varchar" MaxLength="50" />
+    <Property Name="EngineNumber" Type="varchar" MaxLength="50" />
+    <Property Name="ChassisNumber" Type="varchar" MaxLength="50" />
+    <Property Name="VIN" Type="varchar" MaxLength="50" />
+    <Property Name="Cylinder" Type="int" />
+    <Property Name="TypeBody" Type="varchar" MaxLength="50" />
+    <Property Name="TypeFuelId" Type="int" />
+    <Property Name="InitialEnrollmentDate" Type="datetime" />
+    <Property Name="NroDoors" Type="int" />
+    <Property Name="TypeTireId" Type="int" />
+    <Property Name="AuthoritiesTransitId" Type="int" />
+    <Property Name="VehicleId" Type="int" />
+  </EntityType>
+  <EntityType Name="VehicleMaintenance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="MaintenanceDate" Type="datetime" />
+    <Property Name="CurrentMileage" Type="float" />
+    <Property Name="NextMaintenanceDate" Type="datetime" />
+    <Property Name="TypeMaintenanceId" Type="int" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="VehicleId" Type="int" />
+  </EntityType>
+  <EntityType Name="VehiclePolicySOAT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PolicyNumber" Type="varchar" MaxLength="50" />
+    <Property Name="ExpeditionDate" Type="datetime" />
+    <Property Name="DateStartValidity" Type="datetime" />
+    <Property Name="EndDateValidity" Type="datetime" />
+    <Property Name="SOATIssueEntity" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="bit" />
+    <Property Name="VehicleId" Type="int" />
+  </EntityType>
+  <EntityType Name="Vehicles">
+    <Key>
+      <PropertyRef Name="}" />
+    </Key>
+    <Property Name="}" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LicensePlate" Type="varchar" MaxLength="50" />
+    <Property Name="NroTransitLicense" Type="varchar" MaxLength="50" />
+    <Property Name="StateVehicle" Type="bit" />
+    <Property Name="TypeServiceId" Type="int" />
+    <Property Name="ClassVehicleId" Type="int" />
+    <Property Name="Image" Type="varchar(max)" />
+    <Property Name="CustomerId" Type="int" />
+  </EntityType>
+  <EntityType Name="VehicleTechnicalData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CapacityLoad" Type="float" />
+    <Property Name="PassengerCapacity" Type="int" />
+    <Property Name="GVWR" Type="float" />
+    <Property Name="CapacityPassengersSitting" Type="int" />
+    <Property Name="NumberAxes" Type="int" />
+    <Property Name="VehicleId" Type="int" />
+  </EntityType>
+  <Association Name="FK__Members__UserId__693CA210">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="Members" Type="Self.Members" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Members">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserProje__UserI__6EF57B66">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="UserProjects" Type="Self.UserProjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProjects">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Artifacts_Projects">
+    <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+    <End Role="Artifacts" Type="Self.Artifacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Artifacts">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_Cities">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_DocumentTypes">
+    <End Role="DocumentTypes" Type="Self.DocumentTypes" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="DocumentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Projects_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_Activities">
+    <End Role="Activities" Type="Self.Activities" Multiplicity="0..1" />
+    <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Activities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="ActivityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_Priorities">
+    <End Role="Priorities" Type="Self.Priorities" Multiplicity="0..1" />
+    <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Priorities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="PriorityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_Projects">
+    <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+    <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_States">
+    <End Role="States" Type="Self.States" Multiplicity="0..1" />
+    <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProjects_Projects">
+    <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+    <End Role="UserProjects" Type="Self.UserProjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProjects">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleFuels_TypeFuels">
+    <End Role="TypeFuels" Type="Self.TypeFuels" Multiplicity="0..1" />
+    <End Role="VehicleFuels" Type="Self.VehicleFuels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeFuels">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VehicleFuels">
+        <PropertyRef Name="TypeFuelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleFuels_Vehicles">
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="0..1" />
+    <End Role="VehicleFuels" Type="Self.VehicleFuels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicles">
+        <PropertyRef Name="}" />
+      </Principal>
+      <Dependent Role="VehicleFuels">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleGeneralInformation_AuthoritiesTransit">
+    <End Role="AuthoritiesTransit" Type="Self.AuthoritiesTransit" Multiplicity="0..1" />
+    <End Role="VehicleGeneralInformation" Type="Self.VehicleGeneralInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AuthoritiesTransit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VehicleGeneralInformation">
+        <PropertyRef Name="AuthoritiesTransitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleGeneralInformation_Brands">
+    <End Role="Brands" Type="Self.Brands" Multiplicity="0..1" />
+    <End Role="VehicleGeneralInformation" Type="Self.VehicleGeneralInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brands">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VehicleGeneralInformation">
+        <PropertyRef Name="BrandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleGeneralInformation_TypeFuels">
+    <End Role="TypeFuels" Type="Self.TypeFuels" Multiplicity="0..1" />
+    <End Role="VehicleGeneralInformation" Type="Self.VehicleGeneralInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeFuels">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VehicleGeneralInformation">
+        <PropertyRef Name="TypeFuelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleGeneralInformation_TypeTires">
+    <End Role="TypeTires" Type="Self.TypeTires" Multiplicity="0..1" />
+    <End Role="VehicleGeneralInformation" Type="Self.VehicleGeneralInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeTires">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VehicleGeneralInformation">
+        <PropertyRef Name="TypeTireId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleGeneralInformation_Vehicles">
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="0..1" />
+    <End Role="VehicleGeneralInformation" Type="Self.VehicleGeneralInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicles">
+        <PropertyRef Name="}" />
+      </Principal>
+      <Dependent Role="VehicleGeneralInformation">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleMaintenance_TypeMaintenance">
+    <End Role="TypeMaintenance" Type="Self.TypeMaintenance" Multiplicity="0..1" />
+    <End Role="VehicleMaintenance" Type="Self.VehicleMaintenance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeMaintenance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VehicleMaintenance">
+        <PropertyRef Name="TypeMaintenanceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleMaintenance_Vehicles">
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="0..1" />
+    <End Role="VehicleMaintenance" Type="Self.VehicleMaintenance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicles">
+        <PropertyRef Name="}" />
+      </Principal>
+      <Dependent Role="VehicleMaintenance">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehiclePolicySOAT_Vehicles">
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="0..1" />
+    <End Role="VehiclePolicySOAT" Type="Self.VehiclePolicySOAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicles">
+        <PropertyRef Name="}" />
+      </Principal>
+      <Dependent Role="VehiclePolicySOAT">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_ClassVehicle">
+    <End Role="ClassVehicle" Type="Self.ClassVehicle" Multiplicity="0..1" />
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClassVehicle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="ClassVehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_TypeServices">
+    <End Role="TypeServices" Type="Self.TypeServices" Multiplicity="0..1" />
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeServices">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="TypeServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VehicleTechnicalData_Vehicles">
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="0..1" />
+    <End Role="VehicleTechnicalData" Type="Self.VehicleTechnicalData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicles">
+        <PropertyRef Name="}" />
+      </Principal>
+      <Dependent Role="VehicleTechnicalData">
+        <PropertyRef Name="VehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProjectMVCModelStoreContainer">
+    <EntitySet Name="Activities" EntityType="Self.Activities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Artifacts" EntityType="Self.Artifacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuthoritiesTransit" EntityType="Self.AuthoritiesTransit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClassVehicle" EntityType="Self.ClassVehicle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentTypes" EntityType="Self.DocumentTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Matches" EntityType="Self.Matches" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Priorities" EntityType="Self.Priorities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tenants" EntityType="Self.Tenants" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeFuels" EntityType="Self.TypeFuels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeMaintenance" EntityType="Self.TypeMaintenance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeServices" EntityType="Self.TypeServices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeTires" EntityType="Self.TypeTires" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProjects" EntityType="Self.UserProjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleFuels" EntityType="Self.VehicleFuels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleGeneralInformation" EntityType="Self.VehicleGeneralInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleMaintenance" EntityType="Self.VehicleMaintenance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehiclePolicySOAT" EntityType="Self.VehiclePolicySOAT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehicles" EntityType="Self.Vehicles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleTechnicalData" EntityType="Self.VehicleTechnicalData" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Members__UserId__693CA210" Association="Self.FK__Members__UserId__693CA210">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Members" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserProje__UserI__6EF57B66" Association="Self.FK__UserProje__UserI__6EF57B66">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="UserProjects" EntitySet="UserProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Artifacts_Projects" Association="Self.FK_Artifacts_Projects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Artifacts" EntitySet="Artifacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_Cities" Association="Self.FK_Customer_Cities">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_DocumentTypes" Association="Self.FK_Customer_DocumentTypes">
+      <End Role="DocumentTypes" EntitySet="DocumentTypes" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Projects_Tenants" Association="Self.FK_Projects_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_Activities" Association="Self.FK_Tasks_Activities">
+      <End Role="Activities" EntitySet="Activities" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_Priorities" Association="Self.FK_Tasks_Priorities">
+      <End Role="Priorities" EntitySet="Priorities" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_Projects" Association="Self.FK_Tasks_Projects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_States" Association="Self.FK_Tasks_States">
+      <End Role="States" EntitySet="States" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProjects_Projects" Association="Self.FK_UserProjects_Projects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="UserProjects" EntitySet="UserProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleFuels_TypeFuels" Association="Self.FK_VehicleFuels_TypeFuels">
+      <End Role="TypeFuels" EntitySet="TypeFuels" />
+      <End Role="VehicleFuels" EntitySet="VehicleFuels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleFuels_Vehicles" Association="Self.FK_VehicleFuels_Vehicles">
+      <End Role="Vehicles" EntitySet="Vehicles" />
+      <End Role="VehicleFuels" EntitySet="VehicleFuels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleGeneralInformation_AuthoritiesTransit" Association="Self.FK_VehicleGeneralInformation_AuthoritiesTransit">
+      <End Role="AuthoritiesTransit" EntitySet="AuthoritiesTransit" />
+      <End Role="VehicleGeneralInformation" EntitySet="VehicleGeneralInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleGeneralInformation_Brands" Association="Self.FK_VehicleGeneralInformation_Brands">
+      <End Role="Brands" EntitySet="Brands" />
+      <End Role="VehicleGeneralInformation" EntitySet="VehicleGeneralInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleGeneralInformation_TypeFuels" Association="Self.FK_VehicleGeneralInformation_TypeFuels">
+      <End Role="TypeFuels" EntitySet="TypeFuels" />
+      <End Role="VehicleGeneralInformation" EntitySet="VehicleGeneralInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleGeneralInformation_TypeTires" Association="Self.FK_VehicleGeneralInformation_TypeTires">
+      <End Role="TypeTires" EntitySet="TypeTires" />
+      <End Role="VehicleGeneralInformation" EntitySet="VehicleGeneralInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleGeneralInformation_Vehicles" Association="Self.FK_VehicleGeneralInformation_Vehicles">
+      <End Role="Vehicles" EntitySet="Vehicles" />
+      <End Role="VehicleGeneralInformation" EntitySet="VehicleGeneralInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleMaintenance_TypeMaintenance" Association="Self.FK_VehicleMaintenance_TypeMaintenance">
+      <End Role="TypeMaintenance" EntitySet="TypeMaintenance" />
+      <End Role="VehicleMaintenance" EntitySet="VehicleMaintenance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleMaintenance_Vehicles" Association="Self.FK_VehicleMaintenance_Vehicles">
+      <End Role="Vehicles" EntitySet="Vehicles" />
+      <End Role="VehicleMaintenance" EntitySet="VehicleMaintenance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehiclePolicySOAT_Vehicles" Association="Self.FK_VehiclePolicySOAT_Vehicles">
+      <End Role="Vehicles" EntitySet="Vehicles" />
+      <End Role="VehiclePolicySOAT" EntitySet="VehiclePolicySOAT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_ClassVehicle" Association="Self.FK_Vehicles_ClassVehicle">
+      <End Role="ClassVehicle" EntitySet="ClassVehicle" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_Customer" Association="Self.FK_Vehicles_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_TypeServices" Association="Self.FK_Vehicles_TypeServices">
+      <End Role="TypeServices" EntitySet="TypeServices" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VehicleTechnicalData_Vehicles" Association="Self.FK_VehicleTechnicalData_Vehicles">
+      <End Role="Vehicles" EntitySet="Vehicles" />
+      <End Role="VehicleTechnicalData" EntitySet="VehicleTechnicalData" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -39,50 +39,50 @@ namespace ProjectMVC.Controllers
         }
 
         // GET: Projects
-        public async Task<ActionResult> GetProjects()
-        {
-            try
-            {
-                ApplicationUser user = await UserManager.FindByNameAsync(User.Identity.Name);
+        //public async Task<ActionResult> GetProjects()
+        //{
+        //    try
+        //    {
+        //        ApplicationUser user = await UserManager.FindByNameAsync(User.Identity.Name);
 
-                Logica.BL.Tenants tenants = new Logica.BL.Tenants();
-                var tenant = tenants.GetTenants(user.Id).FirstOrDefault();
+        //        Logica.BL.Tenants tenants = new Logica.BL.Tenants();
+        //        var tenant = tenants.GetTenants(user.Id).FirstOrDefault();
 
-                Logica.BL.Projects projects = new Logica.BL.Projects();
+        //        Logica.BL.Projects projects = new Logica.BL.Projects();
 
-                var result = await UserManager.IsInRoleAsync(user.Id, "Admin") ?
-                    projects.GetProjects(null, tenant.Id) :
-                    projects.GetProjects(null, tenant.Id, user.Id);
+        //        var result = await UserManager.IsInRoleAsync(user.Id, "Admin") ?
+        //            projects.GetProjects(null, tenant.Id) :
+        //            projects.GetProjects(null, tenant.Id, user.Id);
 
-                var listProjects = result.Select(x => new Logica.Models.ViewModels.ProjectsIndexViewModel
-                {
-                    Id = x.Id,
-                    Title = x.Title,
-                    Details = x.Details,
-                    ExpectedCompletionDateString = x.ExpectedCompletionDate == null ? string.Empty : x.ExpectedCompletionDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
-                    CreatedAtString = x.CreatedAt == null ? string.Empty : x.CreatedAt.Value.ToString("yyyy-MM-dd HH:mm:ss"),
-                    UpdatedAtString = x.UpdatedAt == null ? string.Empty : x.UpdatedAt.Value.ToString("yyyy-MM-dd HH:mm:ss")
-                }).ToList();
+        //        var listProjects = result.Select(x => new Logica.Models.ViewModels.ProjectsIndexViewModel
+        //        {
+        //            Id = x.Id,
+        //            Title = x.Title,
+        //            Details = x.Details,
+        //            ExpectedCompletionDateString = x.ExpectedCompletionDate == null ? string.Empty : x.ExpectedCompletionDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
+        //            CreatedAtString = x.CreatedAt == null ? string.Empty : x.CreatedAt.Value.ToString("yyyy-MM-dd HH:mm:ss"),
+        //            UpdatedAtString = x.UpdatedAt == null ? string.Empty : x.UpdatedAt.Value.ToString("yyyy-MM-dd HH:mm:ss")
+        //        }).ToList();
 
-                listProjects = tenant.Plan.Equals("Premium") ?
-                    listProjects :
-                    listProjects.Take(1).ToList();
+        //        listProjects = tenant.Plan.Equals("Premium") ?
+        //            listProjects :
+        //            listProjects.Take(1).ToList();
 
-                return Json(new
-                {
-                    Data = listProjects,
-                    IsSuccessful = true
-                }, JsonRequestBehavior.AllowGet);
-            }
-            catch (Exception ex)
-            {
-                return Json(new Logica.Models.ViewModels.ResponseViewModel
-                {
-                    IsSuccessful = false,
-                    Errors = new List<string> { ex.Message }
-                }, JsonRequestBehavior.AllowGet);
-            }
-        }
+        //        return Json(new
+        //        {
+        //            Data = listProjects,
+        //            IsSuccessful = true
+        //        }, JsonRequestBehavior.AllowGet);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return Json(new Logica.Models.ViewModels.ResponseViewModel
+        //        {
+        //            IsSuccessful = false,
+        //            Errors = new List<string> { ex.Message }
+        //        }, JsonRequestBehavior.AllowGet);
+        //    }
+        //}
 
         public ActionResult Create()
         {
@@ -90,46 +90,46 @@ namespace ProjectMVC.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(Logica.Models.BindingModels.ProjectsCreateBindingModel model)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    ApplicationUser user = await UserManager.FindByNameAsync(User.Identity.Name);
+        //public async Task<ActionResult> Create(Logica.Models.BindingModels.ProjectsCreateBindingModel model)
+        //{
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            ApplicationUser user = await UserManager.FindByNameAsync(User.Identity.Name);
 
-                    Logica.BL.Tenants tenants = new Logica.BL.Tenants();
-                    var tenant = tenants.GetTenants(user.Id).FirstOrDefault();
+        //            Logica.BL.Tenants tenants = new Logica.BL.Tenants();
+        //            var tenant = tenants.GetTenants(user.Id).FirstOrDefault();
 
-                    Logica.BL.Projects projects = new Logica.BL.Projects();
-                    projects.CreateProjects(model.Title,
-                        model.Details,
-                        model.ExpectedCompletionDate,
-                        tenant.Id);
-                }
-                else
-                {
-                    return Json(new Logica.Models.ViewModels.ResponseViewModel
-                    {
-                        IsSuccessful = false,
-                        Errors = ModelState.Values.SelectMany(m => m.Errors).Select(e => e.ErrorMessage).ToList()
-                    }, JsonRequestBehavior.AllowGet);
-                }
+        //            Logica.BL.Projects projects = new Logica.BL.Projects();
+        //            projects.CreateProjects(model.Title,
+        //                model.Details,
+        //                model.ExpectedCompletionDate,
+        //                tenant.Id);
+        //        }
+        //        else
+        //        {
+        //            return Json(new Logica.Models.ViewModels.ResponseViewModel
+        //            {
+        //                IsSuccessful = false,
+        //                Errors = ModelState.Values.SelectMany(m => m.Errors).Select(e => e.ErrorMessage).ToList()
+        //            }, JsonRequestBehavior.AllowGet);
+        //        }
 
-                return Json(new
-                {
-                    IsSuccessful = true
-                }, JsonRequestBehavior.AllowGet);
-            }
-            catch (Exception ex)
-            {
-                return Json(new Logica.Models.ViewModels.ResponseViewModel
-                {
-                    IsSuccessful = false,
-                    Errors = new List<string> { ex.Message }
-                }, JsonRequestBehavior.AllowGet);
-            }
-        }
+        //        return Json(new
+        //        {
+        //            IsSuccessful = true
+        //        }, JsonRequestBehavior.AllowGet);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return Json(new Logica.Models.ViewModels.ResponseViewModel
+        //        {
+        //            IsSuccessful = false,
+        //            Errors = new List<string> { ex.Message }
+        //        }, JsonRequestBehavior.AllowGet);
+        //    }
+        //}
 
         public ActionResult Edit(int? id)
         {

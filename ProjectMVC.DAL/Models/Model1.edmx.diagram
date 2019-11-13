@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6e63213145604061b047f5dfbe8699ca" Name="Diagram1">
+        <EntityTypeShape EntityType="ProjectMVCModel.Activity" Width="1.5" PointX="6" PointY="31.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.Artifact" Width="1.5" PointX="5.25" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.AspNetRole" Width="1.5" PointX="0.75" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.AspNetUser" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.AuthoritiesTransit" Width="1.5" PointX="13.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.Brand" Width="1.5" PointX="13.5" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.City" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.ClassVehicle" Width="1.5" PointX="8.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.Customer" Width="1.5" PointX="8.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.DocumentType" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.Match" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.Member" Width="1.5" PointX="5.25" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.Priority" Width="1.5" PointX="6" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.Project" Width="1.5" PointX="3" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.State" Width="1.5" PointX="6" PointY="36.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.Task" Width="1.5" PointX="8.25" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.Team" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.Tenant" Width="1.5" PointX="0.75" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.TypeFuel" Width="1.5" PointX="10.5" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.TypeMaintenance" Width="1.5" PointX="10.5" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.TypeService" Width="1.5" PointX="8.25" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.TypeTire" Width="1.5" PointX="13.5" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.UserProject" Width="1.5" PointX="5.25" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.User" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.VehicleFuel" Width="1.5" PointX="12.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.VehicleGeneralInformation" Width="1.5" PointX="15.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.VehicleMaintenance" Width="1.5" PointX="12.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.VehiclePolicySOAT" Width="1.5" PointX="12.75" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.Vehicle" Width="1.5" PointX="10.5" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectMVCModel.VehicleTechnicalData" Width="1.5" PointX="12.75" PointY="31.125" IsExpanded="true" />
+        <AssociationConnector Association="ProjectMVCModel.FK_Tasks_Activities" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_Artifacts_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK__Members__UserId__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK__UserProje__UserI__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_Customer_Cities" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_VehicleGeneralInformation_AuthoritiesTransit" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_VehicleGeneralInformation_Brands" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_Vehicles_ClassVehicle" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_Customer_DocumentTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_Vehicles_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_Tasks_Priorities" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_Projects_Tenants" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_Tasks_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_UserProjects_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_Tasks_States" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_VehicleFuels_TypeFuels" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_VehicleGeneralInformation_TypeFuels" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_VehicleMaintenance_TypeMaintenance" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_Vehicles_TypeServices" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_VehicleGeneralInformation_TypeTires" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_VehicleFuels_Vehicles" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_VehicleGeneralInformation_Vehicles" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_VehicleMaintenance_Vehicles" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_VehiclePolicySOAT_Vehicles" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.FK_VehicleTechnicalData_Vehicles" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectMVCModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -11,7 +11,7 @@ namespace ProjectMVC.Logica.BL
         /// <returns></returns>
         public List<Models.DB.States> GetStates()
         {
-            DAL.Models.ProjectMVCEntities _context = new DAL.Models.ProjectMVCEntities();
+            DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
             var listStates = (from _states in _context.States
                                   where _states.Active == true
                                   select new Models.DB.States

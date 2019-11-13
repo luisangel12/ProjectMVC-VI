@@ -14,7 +14,7 @@ namespace ProjectMVC.Logica.BL
         /// <returns></returns>
         public List<Models.DB.TypeServices> GetTypeServices()
         {
-            DAL.Models.ProjectMVCEntities _context = new DAL.Models.ProjectMVCEntities();
+            DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
 
             var listTypeServices = (from _TypeServices in _context.TypeServices
                                     //join _states in _context.States on _vehicles.Sta equals _states.Id
@@ -46,9 +46,9 @@ namespace ProjectMVC.Logica.BL
             string name,
             bool active)
         {
-            DAL.Models.ProjectMVCEntities _context = new DAL.Models.ProjectMVCEntities();
+            DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
 
-            _context.TypeServices.Add(new DAL.Models.TypeServices
+            _context.TypeServices.Add(new DAL.Models.TypeService
             {
                 Id = id,
                 Name = name,
