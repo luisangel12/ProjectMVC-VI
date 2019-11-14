@@ -52,27 +52,23 @@ namespace ProjectMVC.Logica.BL
         /// <param name="classVehicleId"></param>
         /// <param name="image"></param>
         /// <param name="customerId"></param>
-        public void CreateVehicles(int id,
-            string licensePlate,
+        public void CreateVehicles(string licensePlate,
             string nroTransitLicense,
             bool stateVehicle,
             int? trypeServiceId,
             int? classVehicleId,
-            string image,
-            int? customerId)
+            string image)
         {
             DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
 
             _context.Vehicles.Add(new DAL.Models.Vehicle
             {
-                //Id = id,
                 LicensePlate = licensePlate,
                 NroTransitLicense = nroTransitLicense,
                 StateVehicle = stateVehicle,
                 TypeServiceId = trypeServiceId,
                 ClassVehicleId = classVehicleId,
-                Image = image,
-                CustomerId = customerId
+                Image = image
             });
 
             _context.SaveChanges();

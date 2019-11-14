@@ -54,6 +54,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\Activities.cs" />
+    <Compile Include="BL\ClassVehicle.cs" />
+    <Compile Include="BL\Customer.cs" />
     <Compile Include="BL\Cyties.cs" />
     <Compile Include="BL\Priorities.cs" />
     <Compile Include="BL\Projects.cs" />
@@ -79,7 +81,7 @@
     <Compile Include="Models\DB\AspNetRoles.cs" />
     <Compile Include="Models\DB\AuthoritiesTransit.cs" />
     <Compile Include="Models\DB\Brands.cs" />
-    <Compile Include="Models\DB\Cities.cs" />
+    <Compile Include="Models\DB\City.cs" />
     <Compile Include="Models\DB\ClassVehicle.cs" />
     <Compile Include="Models\DB\Customer.cs" />
     <Compile Include="Models\DB\DocumentTypes.cs" />
@@ -101,6 +103,7 @@
     <Compile Include="Models\DB\Vehicles.cs" />
     <Compile Include="Models\DB\VehicleTechnicalData.cs" />
     <Compile Include="Models\ViewModels\ActivitiesViewModels.cs" />
+    <Compile Include="Models\ViewModels\CustomerViewModels.cs" />
     <Compile Include="Models\ViewModels\ProjectsViewModel.cs" />
     <Compile Include="Models\ViewModels\ResponseViewModel.cs" />
     <Compile Include="Models\ViewModels\TasksViewModel.cs" />

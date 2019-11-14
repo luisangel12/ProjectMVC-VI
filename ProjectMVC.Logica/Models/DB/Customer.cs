@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjectMVC.DAL.Models;
+using ProjectMVC.Logica.BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +10,12 @@ namespace ProjectMVC.Logica.Models.DB
 {
     public class Customer
     {
+        public Customer()
+        {
+            DocumentTypes = new DocumentTypes();
+            City = new City();
+        }
         public int Id { get; set; }
-
         public int DocumentTypeId { get; set; }
 
         public string DocumentNumber { get; set; }
@@ -28,7 +34,11 @@ namespace ProjectMVC.Logica.Models.DB
 
         public int CityId { get; set; }
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
+
+
+        public DocumentTypes DocumentTypes { get; set; }
+        public City City { get; set; }
     }
 }

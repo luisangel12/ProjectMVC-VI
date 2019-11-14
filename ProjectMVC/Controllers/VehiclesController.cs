@@ -22,7 +22,7 @@ namespace ProjectMVC.Controllers
             set { _userManager = value; }
         }
 
-        public VehiclesController ()
+        public VehiclesController()
         {
 
 
@@ -53,9 +53,14 @@ namespace ProjectMVC.Controllers
             return View(listVehiclesViewModel);
         }
 
-        public ActionResult Create()
-        {
+        public ActionResult Create(int? CustomeId)
+        {            
 
+            ProjectMVC.Logica.BL.TypeServices typeServices1 = new Logica.BL.TypeServices();
+            ViewBag.TypeServices = typeServices1.GetTypeService();
+
+            ProjectMVC.Logica.BL.ClassVehicle classVehicle = new ProjectMVC.Logica.BL.ClassVehicle();
+            ViewBag.ClassVehicle = classVehicle.GetClassVehicle();
 
             return View();
         }
@@ -63,29 +68,26 @@ namespace ProjectMVC.Controllers
         [HttpPost]
         public ActionResult Create(Logica.Models.BindingModels.VehiclesCreateBindingModel model)
         {
+          
             if (ModelState.IsValid)
             {
                 Logica.BL.Vehicles vehicles = new Logica.BL.Vehicles();
-                vehicles.CreateVehicles(model.Id,
+                vehicles.CreateVehicles(
                     model.LicensePlate,
                     model.NroTransitLicense,
                     model.StateVehicle,
                     model.TypeServiceId,
                     model.ClassVehicleId,
-                    model.Image,
-                    model.CustomerId);
+                    model.Image);
 
                 return RedirectToAction("Index");
             }
 
-            //Logica.BL.States states = new Logica.BL.States();
-            //ViewBag.States = states.GetStates();
+            Logica.BL.TypeServices typeServices = new Logica.BL.TypeServices();
+            ViewBag.TypeServices = typeServices.GetTypeService();
 
-            //Logica.BL.Activities activities = new Logica.BL.Activities();
-            //ViewBag.Activities = activities.GetActivities();
-
-            //Logica.BL.Priorities priorities = new Logica.BL.Priorities();
-            //ViewBag.Priorities = priorities.GetPriorities();
+            Logica.BL.ClassVehicle classVehicle = new Logica.BL.ClassVehicle();
+            ViewBag.ClassVehicle = classVehicle.GetClassVehicle();
 
             return View(model);
         }

@@ -30,37 +30,7 @@ namespace ProjectMVC.Controllers
         {
 
         }
-
-        // GET: Projects
-        //public async Task<ActionResult> Index()
-        //{
-        //    ApplicationUser user = await UserManager.FindByNameAsync(User.Identity.Name);
-
-        //    Logica.BL.Tenants tenants = new Logica.BL.Tenants();
-        //    var tenant = tenants.GetTenants(user.Id).FirstOrDefault();
-
-        //    Logica.BL.Projects projects = new Logica.BL.Projects();
-
-        //    var result = await UserManager.IsInRoleAsync(user.Id, "Admin") ?
-        //        projects.GetProjects(null, tenant.Id) : //si es admin consulta todos los proyectos de la organizacion
-        //        projects.GetProjects(null, tenant.Id, user.Id); //si es miembro consulta los proyectos de la organizacion que le pertenezcan
-
-        //    var listProjects = result.Select(x => new Logica.Models.ViewModels.ProjectsIndexViewModel
-        //    {
-        //        Id = x.Id,
-        //        Title = x.Title,
-        //        Details = x.Details,
-        //        ExpectedCompletionDate = x.ExpectedCompletionDate,
-        //        CreatedAt = x.CreatedAt,
-        //        UpdatedAt = x.UpdatedAt
-        //    }).ToList();
-
-        //    listProjects = tenant.Plan.Equals("Premium") ?
-        //        listProjects :
-        //        listProjects.Take(1).ToList();
-
-        //    return View(listProjects);//devuelve una vista que tenga el nombre de la accion
-        //}
+     
 
         public ActionResult Create()
         {

@@ -8,7 +8,7 @@
 
 <form action="/Vehicles/Create" method="post">
 
-        @*<div class="form-row">
+    @*<div class="form-row">
             <div class="col-md-12">
                 @Html.LabelFor(m => m.Id)
                 @Html.EditorFor(m => m.Id, new { htmlAttributes = new { @class = "form-control" } })
@@ -33,26 +33,38 @@
     </div>
 
     <div class="form-row">
-        <div class="col-md-12">
+        <div class="col-md-1">
             @Html.LabelFor(m => m.StateVehicle)
             @Html.EditorFor(m => m.StateVehicle, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(m => m.StateVehicle, "", new { @class = "text-danger" })
         </div>
     </div>
 
+    @*<div class="form-row">
+            <div class="col-md-1">
+                @Html.LabelFor(m => m.StateVehicle)
+                @Html.EditorFor(m => m.StateVehicle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.StateVehicle, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    @*<div class="form-row">
+            <div class="col-md-12">
+                @Html.LabelFor(m => m.TypeServiceId)
+                @Html.DropDownListFor(m => m.TypeServiceId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.TypeServiceId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
     <div class="form-row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             @Html.LabelFor(m => m.TypeServiceId)
-            @Html.EditorFor(m => m.TypeServiceId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.DropDownListFor(m => m.TypeServiceId, new SelectList(ViewBag.TypeServices, "Id", "Name"), new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.TypeServiceId, "", new { @class = "text-danger" })
         </div>
-    </div>
-
-    <div class="form-row">
-        <div class="col-md-12">
-            @Html.LabelFor(m => m.CustomerId)
-            @Html.EditorFor(m => m.CustomerId, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(m => m.CustomerId, "", new { @class = "text-danger" })
+        <div class="col-md-6">
+            @Html.LabelFor(m => m.ClassVehicleId)
+            @Html.DropDownListFor(m => m.ClassVehicleId, new SelectList(ViewBag.ClassVehicle, "Id", "Name"), new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ClassVehicleId, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -60,7 +72,7 @@
     <div class="form-row">
         <div class="col-md-12">
             <input type="text" name="Name" placeholder="Enter the Name" />
-            <input type="file" name="FileFront"/>
+            <input type="file" name="FileFront" />
         </div>
     </div>
 

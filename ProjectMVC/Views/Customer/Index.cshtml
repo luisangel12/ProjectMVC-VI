@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ProjectMVC.Logica.Models.ViewModels.CustomerViewModels>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Informacion cliente</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.DocumentTypeId)</td>
+        <td>@Html.DisplayNameFor(model => model.DocumentNumber)</td>
+        <td>@Html.DisplayNameFor(model => model.FirstName)</td>
+        <td>@Html.DisplayNameFor(model => model.SecondName)</td>
+        <td>@Html.DisplayNameFor(model => model.Surname)</td>
+        <td>@Html.DisplayNameFor(model => model.SecondSurname)</td>
+        <td>@Html.DisplayNameFor(model => model.Telephone)</td>
+        <td>@Html.DisplayNameFor(model => model.Address)</td>
+        <td>@Html.DisplayNameFor(model => model.CityId)</td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => item.DocumentTypeId)</td>
+            <td>@Html.DisplayFor(model => item.DocumentNumber)</td>
+            <td>@Html.DisplayFor(model => item.FirstName)</td>
+            <td>@Html.DisplayFor(model => item.SecondName)</td>
+            <td>@Html.DisplayFor(model => item.Surname)</td>
+            <td>@Html.DisplayFor(model => item.SecondSurname)</td>
+            <td>@Html.DisplayFor(model => item.Telephone)</td>
+            <td>@Html.DisplayFor(model => item.Address)</td>
+            <td>@Html.DisplayFor(model => item.CityId)</td>
+        </tr>
+    }
+</table>
