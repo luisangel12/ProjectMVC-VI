@@ -30,6 +30,8 @@ namespace ProjectMVC.Logica.Models.BindingModels
 
         [Required(ErrorMessage = "The field Image is required")]
         [Display(Name = "Imagen")]
-        public string Image { get; set; }     
+        public string Image { get; set; }
+
+        //public int? CustomerId { get; set; }
     }
 }

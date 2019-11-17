@@ -16,7 +16,7 @@ namespace ProjectMVC.Logica.Models.DB
             City = new City();
         }
         public int Id { get; set; }
-        public int DocumentTypeId { get; set; }
+        public int? DocumentTypeId { get; set; }
 
         public string DocumentNumber { get; set; }
 
@@ -32,7 +32,7 @@ namespace ProjectMVC.Logica.Models.DB
 
         public string Address { get; set; }
 
-        public int CityId { get; set; }
+        public int? CityId { get; set; }
 
         public string UserId { get; set; }
 

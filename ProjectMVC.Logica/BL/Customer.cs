@@ -10,6 +10,7 @@ namespace ProjectMVC.Logica.BL
     {
         public List<Models.DB.Customer> GetCustomer(string UserId,
           int? id)
+
         {
             DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
 
@@ -49,6 +50,29 @@ namespace ProjectMVC.Logica.BL
                 listCostumer = listCostumer.Where(x => x.Id == id).ToList();
 
             return listCostumer;
+        }
+        public List<Models.DB.Customer> GetCustomer2()
+        {
+            DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
+
+
+            var listCustomer = (from q in _context.Customers                              
+                                select new Models.DB.Customer
+                                {
+                                    Id = q.Id,
+                                    DocumentTypeId = q.DocumentTypeId,
+                                    DocumentNumber = q.DocumentNumber,
+                                    FirstName = q.FirstName,
+                                    SecondName = q.SecondName,
+                                    Surname = q.Surname,
+                                    SecondSurname = q.SecondSurname,
+                                    Telephone = q.Telephone,
+                                    Address = q.Address,
+                                    CityId = q.CityId,
+                                    UserId = q.UserId,
+                                }).ToList();
+
+            return listCustomer;
         }
     }
 }

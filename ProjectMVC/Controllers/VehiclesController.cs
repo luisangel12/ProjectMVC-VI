@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -27,9 +28,10 @@ namespace ProjectMVC.Controllers
 
 
         }
-
+        
         public ActionResult Index()
         {
+           
             Logica.BL.Vehicles vehicles = new Logica.BL.Vehicles();
             var listVehicles = vehicles.GetVehicles();
 
@@ -52,9 +54,10 @@ namespace ProjectMVC.Controllers
 
             return View(listVehiclesViewModel);
         }
-
-        public ActionResult Create(int? CustomeId)
-        {            
+        [HttpPost]
+        public ActionResult Create()
+        {
+            //ApplicationUser user = await UserManager.FindByNameAsync(User.Identity.Name);
 
             ProjectMVC.Logica.BL.TypeServices typeServices1 = new Logica.BL.TypeServices();
             ViewBag.TypeServices = typeServices1.GetTypeService();
@@ -62,13 +65,18 @@ namespace ProjectMVC.Controllers
             ProjectMVC.Logica.BL.ClassVehicle classVehicle = new ProjectMVC.Logica.BL.ClassVehicle();
             ViewBag.ClassVehicle = classVehicle.GetClassVehicle();
 
+            Logica.BL.Customer customer = new Logica.BL.Customer();
+            var CurtomersId = customer.GetCustomer2();
+
             return View();
         }
 
         [HttpPost]
         public ActionResult Create(Logica.Models.BindingModels.VehiclesCreateBindingModel model)
         {
-          
+            Logica.BL.Customer customer = new Logica.BL.Customer();
+            var CurtomersId = customer.GetCustomer2();
+
             if (ModelState.IsValid)
             {
                 Logica.BL.Vehicles vehicles = new Logica.BL.Vehicles();
@@ -80,7 +88,7 @@ namespace ProjectMVC.Controllers
                     model.ClassVehicleId,
                     model.Image);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index"/*, new { CustomerId = model.CustomerId }*/);
             }
 
             Logica.BL.TypeServices typeServices = new Logica.BL.TypeServices();

@@ -62,7 +62,8 @@ namespace ProjectMVC.Controllers
             if (ModelState.IsValid)
             {
                 Logica.BL.Tasks tasks = new Logica.BL.Tasks();
-                tasks.CreateTasks(model.Title,
+                tasks.CreateTasks(
+                    model.Title,
                     model.Details,
                     model.ExpirationDate,
                     model.IsCompleted,

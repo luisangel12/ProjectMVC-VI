@@ -57,7 +57,8 @@ namespace ProjectMVC.Logica.BL
             bool stateVehicle,
             int? trypeServiceId,
             int? classVehicleId,
-            string image)
+            string image
+            )
         {
             DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
 
