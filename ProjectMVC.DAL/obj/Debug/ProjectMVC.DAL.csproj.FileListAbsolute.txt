@@ -26,20 +26,6 @@ C:\Users\Luis Angel\source\repos\ProjectMVC-development\ProjectMVC.DAL\obj\Debug
 C:\Users\Luis Angel\source\repos\ProjectMVC-development\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.csproj.CopyComplete
 C:\Users\Luis Angel\source\repos\ProjectMVC-development\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.dll
 C:\Users\Luis Angel\source\repos\ProjectMVC-development\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.pdb
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\ProjectMVC.DAL.dll.config
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\ProjectMVC.DAL.dll
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\ProjectMVC.DAL.pdb
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\EntityFramework.dll
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\EntityFramework.xml
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\es\EntityFramework.resources.dll
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\es\EntityFramework.SqlServer.resources.dll
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.csprojAssemblyReference.cache
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.csproj.CoreCompileInputs.cache
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.csproj.CopyComplete
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.dll
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.pdb
 C:\Users\NASSA\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\ProjectMVC.DAL.dll.config
 C:\Users\NASSA\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\ProjectMVC.DAL.dll
 C:\Users\NASSA\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\ProjectMVC.DAL.pdb
@@ -54,3 +40,17 @@ C:\Users\NASSA\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DA
 C:\Users\NASSA\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.csproj.CopyComplete
 C:\Users\NASSA\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.dll
 C:\Users\NASSA\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.pdb
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\ProjectMVC.DAL.dll.config
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\ProjectMVC.DAL.dll
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\ProjectMVC.DAL.pdb
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\EntityFramework.dll
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\EntityFramework.xml
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\es\EntityFramework.resources.dll
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.csprojAssemblyReference.cache
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.csproj.CopyComplete
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.dll
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.DAL\obj\Debug\ProjectMVC.DAL.pdb

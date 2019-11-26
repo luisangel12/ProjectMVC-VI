@@ -1244,9 +1244,9 @@
         </EntityType>
         <EntityType Name="Vehicle">
           <Key>
-            <PropertyRef Name="C_" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="C_" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LicensePlate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NroTransitLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="StateVehicle" Type="Boolean" />
@@ -1549,7 +1549,7 @@
           <End Role="VehicleFuels" Type="Self.VehicleFuel" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Vehicles">
-              <PropertyRef Name="C_" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="VehicleFuels">
               <PropertyRef Name="VehicleId" />
@@ -1561,7 +1561,7 @@
           <End Role="VehicleGeneralInformation" Type="Self.VehicleGeneralInformation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Vehicles">
-              <PropertyRef Name="C_" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="VehicleGeneralInformation">
               <PropertyRef Name="VehicleId" />
@@ -1573,7 +1573,7 @@
           <End Role="VehicleMaintenance" Type="Self.VehicleMaintenance" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Vehicles">
-              <PropertyRef Name="C_" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="VehicleMaintenance">
               <PropertyRef Name="VehicleId" />
@@ -1585,7 +1585,7 @@
           <End Role="VehiclePolicySOAT" Type="Self.VehiclePolicySOAT" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Vehicles">
-              <PropertyRef Name="C_" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="VehiclePolicySOAT">
               <PropertyRef Name="VehicleId" />
@@ -1597,7 +1597,7 @@
           <End Role="VehicleTechnicalData" Type="Self.VehicleTechnicalData" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Vehicles">
-              <PropertyRef Name="C_" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="VehicleTechnicalData">
               <PropertyRef Name="VehicleId" />
@@ -2115,7 +2115,7 @@
           <EntitySetMapping Name="Vehicles">
             <EntityTypeMapping TypeName="ProjectMVCModel.Vehicle">
               <MappingFragment StoreEntitySet="Vehicles">
-                <ScalarProperty Name="C_" ColumnName="}" />
+                <ScalarProperty Name="Id" ColumnName="}" />
                 <ScalarProperty Name="LicensePlate" ColumnName="LicensePlate" />
                 <ScalarProperty Name="NroTransitLicense" ColumnName="NroTransitLicense" />
                 <ScalarProperty Name="StateVehicle" ColumnName="StateVehicle" />

@@ -49,14 +49,15 @@
                     @Html.ActionLink("Vehicles", "Create", "Vehicles", null, new { @class = "list-group-item list-group-item-action bg-light" })
                     @Html.ActionLink("Customer", "Index", "Customer", null, new { @class = "list-group-item list-group-item-action bg-light" })
                     @Html.ActionLink("VehicleTechnicalData", "Index", "VehicleTechnicalData", null, new { @class = "list-group-item list-group-item-action bg-light" })
-                   @* @Html.ActionLink("FileUpload", "Index", "FileUpload", null, new { @class = "list-group-item list-group-item-action bg-light" })*@
+                    @Html.ActionLink("VehicleMaintenance", "Create", "VehicleMaintenance", null, new { @class = "list-group-item list-group-item-action bg-light" })
+                    @* @Html.ActionLink("FileUpload", "Index", "FileUpload", null, new { @class = "list-group-item list-group-item-action bg-light" })*@
 
                     if (User.IsInRole("Admin"))
                     {
                         @*@Html.ActionLink("Activities", "Index", "Activities", null, new { @class = "list-group-item list-group-item-action bg-light" })*@
                         @*@Html.ActionLink("Users", "Index", "Users", null, new { @class = "list-group-item list-group-item-action bg-light" })*@
 
-                       @* @Html.ActionLink("RolesAdmin", "Index", "RolesAdmin", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })*@
+                        @* @Html.ActionLink("RolesAdmin", "Index", "RolesAdmin", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })*@
                         @*@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })*@
                     }
                 }

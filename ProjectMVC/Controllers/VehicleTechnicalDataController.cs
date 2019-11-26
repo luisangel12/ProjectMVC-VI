@@ -1,43 +1,99 @@
-﻿using ProjectMVC.DAL.Models;
+﻿using IdentitySample.Models;
+using Microsoft.AspNet.Identity.Owin;
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
 namespace ProjectMVC.Controllers
 {
+
     public class VehicleTechnicalDataController : Controller
     {
-        private ProjectMVCEntities2 db = new ProjectMVCEntities2();
+        DAL.Models.ProjectMVCEntities2 db = new DAL.Models.ProjectMVCEntities2();
+        private ApplicationUserManager _userManager;
 
-        // GET: VehicleTechnicalData
-        public ActionResult Index()
+
+        public ApplicationUserManager UserManager
         {
-            return View(db.VehicleTechnicalDatas.ToList());
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            set { _userManager = value; }
         }
 
-        // GET: VehicleTechnicalData/Create
-        public ActionResult Create()
+        public VehicleTechnicalDataController(ApplicationUserManager userManager)
         {
+            UserManager = userManager;
+        }
+
+        public VehicleTechnicalDataController()
+        {
+
+        }
+
+        public ActionResult Index()
+        {
+            //Logica.BL.TypeServices typeServices = new Logica.BL.TypeServices();
+            //ViewBag.TypeService = typeServices.GetTypeServices();
+
+            //Logica.BL.ClassVehicle classVehicle = new Logica.BL.ClassVehicle();
+            //ViewBag.ClassVehicle = classVehicle.GetClassVehicle();
+
+
             return View();
         }
 
-        // POST: VehicleTechnicalData/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CapacityLoad,PassengerCapacity,GVWR,CapacityPassengersSitting,NumberAxes,VehicleId")] VehicleTechnicalData vehicleTechnicalData)
+
+
+        public ActionResult Create()
         {
+            //Logica.BL.TypeServices typeServices = new Logica.BL.TypeServices();
+            //ViewBag.TypeService = typeServices.GetTypeServices();
+
+            //Logica.BL.ClassVehicle classVehicle = new Logica.BL.ClassVehicle();
+            //ViewBag.ClassVehicle = classVehicle.GetClassVehicle();
+
+            return View();
+
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Create(Logica.Models.BindingModels.VehiclesCreateBindingModel model)
+        {
+            ApplicationUser user = await UserManager.FindByNameAsync(User.Identity.Name);
+
+            //Logica.BL.TypeServices typeServices = new Logica.BL.TypeServices();
+            //ViewBag.TypeService = typeServices.GetTypeServices();
+
+            //Logica.BL.ClassVehicle classVehicle = new Logica.BL.ClassVehicle();
+            //ViewBag.ClassVehicle = classVehicle.GetClassVehicle();
+
             if (ModelState.IsValid)
             {
-                db.VehicleTechnicalDatas.Add(vehicleTechnicalData);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+ 
+                //Logica.BL.Vehicles vehicles = new Logica.BL.Vehicles();
 
-            return View(vehicleTechnicalData);
+
+                //var capturaVehicles = vehicles.GetVehicles2().Where(x => x.Id == user.Id).FirstOrDefault();
+
+                //Logica.BL.VehicleTechnicalData vehicletechnicaldata = new Logica.BL.VehicleTechnicalData();
+                //vehicletechnicaldata.CreateVehicleTechnicalData(model.Id,
+                //    model.CapacityLoad,
+                //    model.PassengerCapacity,
+                //    model.GVWR,
+                //    model.CapacityPassengersSitting,
+                //    model.NumberAxes,
+                //    capturaVehicles.Id
+                //    );
+
+                //return View("Create");
+
+            }
+            return View(model);
         }
+
     }
 }

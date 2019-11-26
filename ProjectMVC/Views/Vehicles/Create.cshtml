@@ -6,82 +6,62 @@
 
 <h2>Create</h2>
 
-<form action="/Vehicles/Create" method="post">
 
-    @*<div class="form-row">
+    <form action="/Vehicles/Create" method="post" enctype="multipart/form-data">
+
+        <div class="form-row">
             <div class="col-md-12">
-                @Html.LabelFor(m => m.Id)
-                @Html.EditorFor(m => m.Id, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.Id, "", new { @class = "text-danger" })
+                @Html.LabelFor(m => m.LicensePlate)
+                @Html.EditorFor(m => m.LicensePlate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.LicensePlate, "", new { @class = "text-danger" })
             </div>
-        </div>*@
-
-    <div class="form-row">
-        <div class="col-md-12">
-            @Html.LabelFor(m => m.LicensePlate)
-            @Html.EditorFor(m => m.LicensePlate, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(m => m.LicensePlate, "", new { @class = "text-danger" })
         </div>
-    </div>
 
-    <div class="form-row">
-        <div class="col-md-12">
-            @Html.LabelFor(m => m.NroTransitLicense)
-            @Html.EditorFor(m => m.NroTransitLicense, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(m => m.NroTransitLicense, "", new { @class = "text-danger" })
+        <div class="form-row">
+            <div class="col-md-12">
+                @Html.LabelFor(m => m.NroTransitLicense)
+                @Html.EditorFor(m => m.NroTransitLicense, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.NroTransitLicense, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-row">
-        <div class="col-md-1">
-            @Html.LabelFor(m => m.StateVehicle)
-            @Html.EditorFor(m => m.StateVehicle, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(m => m.StateVehicle, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    @*<div class="form-row">
-            <div class="col-md-1">
+        <div class="form-row">
+            <div class="col-md-12">
                 @Html.LabelFor(m => m.StateVehicle)
                 @Html.EditorFor(m => m.StateVehicle, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(m => m.StateVehicle, "", new { @class = "text-danger" })
             </div>
-        </div>*@
+        </div>
 
-    @*<div class="form-row">
-            <div class="col-md-12">
+        <div class="form-row">  
+            <div class="col-md-8">
                 @Html.LabelFor(m => m.TypeServiceId)
-                @Html.DropDownListFor(m => m.TypeServiceId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(m => m.TypeServiceId, new SelectList(ViewBag.TypeService, "Id", "Name", "Active"), new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.TypeServiceId, "", new { @class = "text-danger" })
             </div>
-        </div>*@
-    <div class="form-row">
-        <div class="col-md-6">
-            @Html.LabelFor(m => m.TypeServiceId)
-            @Html.DropDownListFor(m => m.TypeServiceId, new SelectList(ViewBag.TypeServices, "Id", "Name"), new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.TypeServiceId, "", new { @class = "text-danger" })
         </div>
-        <div class="col-md-6">
-            @Html.LabelFor(m => m.ClassVehicleId)
-            @Html.DropDownListFor(m => m.ClassVehicleId, new SelectList(ViewBag.ClassVehicle, "Id", "Name"), new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.ClassVehicleId, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <Hr />
-    <div class="form-row">
-        <div class="col-md-12">
-            <input type="text" name="Name" placeholder="Enter the Name" />
-            <input type="file" name="FileFront" />
+        <div class="form-row">
+            <div class="col-md-8">
+                @Html.LabelFor(m => m.ClassVehicleId)
+                @Html.DropDownListFor(m => m.ClassVehicleId, new SelectList(ViewBag.classVehicle, "Id", "Name", "Active"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ClassVehicleId, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-row">
-        <div class="col-md-12">
-            <br />
-            <button type="submit" value="" class="btn btn-primary"><i class="fas fa-save"></i></button>
-            @Html.ActionLink(" ", "Index", "Vehicles", null, new { @class = "btn btn-primary fas fa-undo-alt" })
+        <Hr />
+        <div class="form-row">
+            <div class="col-md-12">
+                <input type="file" name="FileFront" />
+            </div>
         </div>
-    </div>
 
-</form>
+        <div class="form-row">
+            <div class="col-md-12">
+                <br />
+                <button type="submit" value="" class="btn btn-primary"><i class="fas fa-save"></i></button>
+                @Html.ActionLink(" ", "Index", "Vehicles", null, new { @class = "btn btn-primary fas fa-undo-alt" })
+            </div>
+        </div>
+
+    </form>

@@ -1,7 +1,6 @@
 ﻿using IdentitySample.Models;
 using Microsoft.AspNet.Identity.Owin;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -9,10 +8,12 @@ using System.Web.Mvc;
 
 namespace ProjectMVC.Controllers
 {
-    [Authorize]
+
     public class VehiclesController : Controller
     {
+        DAL.Models.ProjectMVCEntities2 db = new DAL.Models.ProjectMVCEntities2();
         private ApplicationUserManager _userManager;
+
 
         public ApplicationUserManager UserManager
         {
@@ -23,81 +24,97 @@ namespace ProjectMVC.Controllers
             set { _userManager = value; }
         }
 
+        public VehiclesController(ApplicationUserManager userManager)
+        {
+            UserManager = userManager;
+        }
+
         public VehiclesController()
         {
 
-
         }
-        
+
         public ActionResult Index()
         {
-           
-            Logica.BL.Vehicles vehicles = new Logica.BL.Vehicles();
-            var listVehicles = vehicles.GetVehicles();
+            Logica.BL.TypeServices typeServices = new Logica.BL.TypeServices();
+            ViewBag.TypeService = typeServices.GetTypeServices();
 
-            var listVehiclesViewModel = listVehicles.Select(x => new Logica.Models.ViewModels.VehiclesViewModel
-            {
-                Id = x.Id,
-                LicensePlate = x.LicensePlate,
-                NroTransitLicense = x.NroTransitLicense,
-                StateVehicle = x.StateVehicle,
-                TypeServiceId = x.TypeServiceId,
-                ClassVehicleId = x.ClassVehicleId,
-                Image = x.Image,
-                CustomerId = x.CustomerId
-            }).ToList();
-
-            Logica.BL.Vehicles vehicles1 = new Logica.BL.Vehicles();
-            //var vehicles = vehicles.GetVehicles().FirstOrDefault();
-
-            ViewBag.Vehicles = vehicles;
-
-            return View(listVehiclesViewModel);
-        }
-        [HttpPost]
-        public ActionResult Create()
-        {
-            //ApplicationUser user = await UserManager.FindByNameAsync(User.Identity.Name);
-
-            ProjectMVC.Logica.BL.TypeServices typeServices1 = new Logica.BL.TypeServices();
-            ViewBag.TypeServices = typeServices1.GetTypeService();
-
-            ProjectMVC.Logica.BL.ClassVehicle classVehicle = new ProjectMVC.Logica.BL.ClassVehicle();
+            Logica.BL.ClassVehicle classVehicle = new Logica.BL.ClassVehicle();
             ViewBag.ClassVehicle = classVehicle.GetClassVehicle();
 
-            Logica.BL.Customer customer = new Logica.BL.Customer();
-            var CurtomersId = customer.GetCustomer2();
+
+            return View(db.Vehicles.ToList());
+        }
+
+
+
+        public ActionResult Create()
+        {
+            Logica.BL.TypeServices typeServices = new Logica.BL.TypeServices();
+            ViewBag.TypeService = typeServices.GetTypeServices();
+
+            Logica.BL.ClassVehicle classVehicle = new Logica.BL.ClassVehicle();
+            ViewBag.ClassVehicle = classVehicle.GetClassVehicle();
 
             return View();
+
         }
 
         [HttpPost]
-        public ActionResult Create(Logica.Models.BindingModels.VehiclesCreateBindingModel model)
+        public async Task<ActionResult> Create(Logica.Models.BindingModels.VehiclesCreateBindingModel model)
         {
-            Logica.BL.Customer customer = new Logica.BL.Customer();
-            var CurtomersId = customer.GetCustomer2();
+            ApplicationUser user = await UserManager.FindByNameAsync(User.Identity.Name);
+
+            Logica.BL.TypeServices typeServices = new Logica.BL.TypeServices();
+            ViewBag.TypeService = typeServices.GetTypeServices();
+
+            Logica.BL.ClassVehicle classVehicle = new Logica.BL.ClassVehicle();
+            ViewBag.ClassVehicle = classVehicle.GetClassVehicle();
 
             if (ModelState.IsValid)
             {
+
+                var ImageVehicle = string.Empty;
+
+                for (int i = 0; i < Request.Files.Count; i++)
+                {
+                    HttpPostedFileBase file = Request.Files[i];
+
+                    string mimeType = file.ContentType;
+
+                    var Image = Guid.NewGuid();
+                    var ext = mimeType.Split('/').LastOrDefault();
+                    ImageVehicle = string.Format("{0}.{1}", Image, ext);
+
+
+                    file.SaveAs(Server.MapPath("~/Images/Vehicles/") +
+                    string.Format("{0}.{1}", Image, ext));
+
+                }
+
+
+                Logica.BL.Customer customer = new Logica.BL.Customer();
+
+
+                var capturaCustomer = customer.GetCustomer(user.Id,null).FirstOrDefault();
+
                 Logica.BL.Vehicles vehicles = new Logica.BL.Vehicles();
-                vehicles.CreateVehicles(
+                vehicles.CreateVehicles(model.Id,
                     model.LicensePlate,
                     model.NroTransitLicense,
                     model.StateVehicle,
                     model.TypeServiceId,
                     model.ClassVehicleId,
-                    model.Image);
+                    ImageVehicle,
+                    //model.CustomerId
+                    capturaCustomer.Id
+                    );
 
-                return RedirectToAction("Index"/*, new { CustomerId = model.CustomerId }*/);
+                return View("Create");
+
             }
-
-            Logica.BL.TypeServices typeServices = new Logica.BL.TypeServices();
-            ViewBag.TypeServices = typeServices.GetTypeService();
-
-            Logica.BL.ClassVehicle classVehicle = new Logica.BL.ClassVehicle();
-            ViewBag.ClassVehicle = classVehicle.GetClassVehicle();
-
             return View(model);
         }
+
     }
 }

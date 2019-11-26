@@ -10,7 +10,7 @@ namespace ProjectMVC.Logica.BL
         /// GetDocumentType
         /// </summary>
         /// <returns></returns>
-        public List<Models.DB.TypeServices> GetTypeService()
+        public List<Models.DB.TypeServices> GetTypeServices()
         {
             DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
             var listTypeService = (from _typeservice in _context.TypeServices
@@ -23,5 +23,6 @@ namespace ProjectMVC.Logica.BL
                                     }).ToList();
             return listTypeService;
         }
+
     }
 }

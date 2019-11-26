@@ -355,7 +355,7 @@
     <EntitySetMapping Name="Vehicles">
       <EntityTypeMapping TypeName="ProjectMVCModel.Vehicle">
         <MappingFragment StoreEntitySet="Vehicles">
-          <ScalarProperty Name="C_" ColumnName="}" />
+          <ScalarProperty Name="Id" ColumnName="}" />
           <ScalarProperty Name="LicensePlate" ColumnName="LicensePlate" />
           <ScalarProperty Name="NroTransitLicense" ColumnName="NroTransitLicense" />
           <ScalarProperty Name="StateVehicle" ColumnName="StateVehicle" />

@@ -44,8 +44,8 @@ namespace ProjectMVC.Logica.Services
                         LicensePlate = (string)item["LicensePlate"],
                         NroTransitLicense = (string)item["NroTransitLicense"],
                        StateVehicle = (bool)item["StateVehicle"],
-                        TypeServiceId = (int)item["TypeServiceId"],
-                        ClassVehicleId = (int)item["ClassVehicleId"],
+                        //TypeServiceId = (int)item["TypeServiceId"],
+                        //ClassVehicleId = (int)item["ClassVehicleId"],
                         Image = (string)item["Image"],
                         CustomerId = (int)item["CustomerId"]
 

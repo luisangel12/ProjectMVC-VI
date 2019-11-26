@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProjectMVC.Logica.Models.BindingModels
 {
-    public class TypeServicesCreateBindingModel
+    public class ClassVehicleBindingModel
     {
         [Required(ErrorMessage = "The field Id is required")]
         [Display(Name = "Id")]

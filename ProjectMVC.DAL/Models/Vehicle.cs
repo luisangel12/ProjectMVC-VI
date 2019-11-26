@@ -24,7 +24,7 @@ namespace ProjectMVC.DAL.Models
             this.VehicleTechnicalDatas = new HashSet<VehicleTechnicalData>();
         }
     
-        public int C_ { get; set; }
+        public int Id { get; set; }
         public string LicensePlate { get; set; }
         public string NroTransitLicense { get; set; }
         public Nullable<bool> StateVehicle { get; set; }

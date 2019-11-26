@@ -34,25 +34,6 @@ C:\Users\Luis Angel\source\repos\ProjectMVC-development\ProjectMVC.Logica\obj\De
 C:\Users\Luis Angel\source\repos\ProjectMVC-development\ProjectMVC.Logica\obj\Debug\ProjectMVC.Logica.pdb
 C:\Users\Luis Angel\source\repos\ProjectMVC-development\ProjectMVC.Logica\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Luis Angel\source\repos\ProjectMVC-development\ProjectMVC.Logica\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\ProjectMVC.Logica.dll.config
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\ProjectMVC.Logica.dll
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\ProjectMVC.Logica.pdb
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\EntityFramework.dll
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\ProjectMVC.DAL.dll
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\ProjectMVC.DAL.pdb
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\ProjectMVC.DAL.dll.config
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\EntityFramework.xml
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\es\EntityFramework.resources.dll
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\es\EntityFramework.SqlServer.resources.dll
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\obj\Debug\ProjectMVC.Logica.csprojAssemblyReference.cache
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\obj\Debug\ProjectMVC.Logica.csproj.CoreCompileInputs.cache
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\obj\Debug\ProjectMVC.Logica.csproj.CopyComplete
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\obj\Debug\ProjectMVC.Logica.dll
-C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\obj\Debug\ProjectMVC.Logica.pdb
 C:\Users\NASSA\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\ProjectMVC.Logica.dll.config
 C:\Users\NASSA\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\ProjectMVC.Logica.dll
 C:\Users\NASSA\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\ProjectMVC.Logica.pdb
@@ -72,3 +53,22 @@ C:\Users\NASSA\source\repos\ProjectMVC-VI\ProjectMVC.Logica\obj\Debug\ProjectMVC
 C:\Users\NASSA\source\repos\ProjectMVC-VI\ProjectMVC.Logica\obj\Debug\ProjectMVC.Logica.csproj.CopyComplete
 C:\Users\NASSA\source\repos\ProjectMVC-VI\ProjectMVC.Logica\obj\Debug\ProjectMVC.Logica.dll
 C:\Users\NASSA\source\repos\ProjectMVC-VI\ProjectMVC.Logica\obj\Debug\ProjectMVC.Logica.pdb
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\ProjectMVC.Logica.dll.config
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\ProjectMVC.Logica.dll
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\ProjectMVC.Logica.pdb
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\EntityFramework.dll
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\ProjectMVC.DAL.dll
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\ProjectMVC.DAL.pdb
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\ProjectMVC.DAL.dll.config
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\EntityFramework.xml
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\es\EntityFramework.resources.dll
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\obj\Debug\ProjectMVC.Logica.csprojAssemblyReference.cache
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\obj\Debug\ProjectMVC.Logica.csproj.CoreCompileInputs.cache
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\obj\Debug\ProjectMVC.Logica.csproj.CopyComplete
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\obj\Debug\ProjectMVC.Logica.dll
+C:\Users\Luis Angel\source\repos\ProjectMVC-VI\ProjectMVC.Logica\obj\Debug\ProjectMVC.Logica.pdb

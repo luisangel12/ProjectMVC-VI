@@ -202,7 +202,7 @@
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
-    <Compile Include="Controllers\VehicleGeneralInformationController.cs" />
+    <Compile Include="Controllers\VehicleMaintenanceController.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
     <Compile Include="Controllers\VehicleTechnicalDataController.cs" />
     <Compile Include="Global.asax.cs">
@@ -400,6 +400,8 @@
     <Content Include="Views\FileUpload\Index.cshtml" />
     <Content Include="Views\FileUpload\Show.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\VehicleMaintenance\Create.cshtml" />
+    <Content Include="Views\VehicleMaintenance\Index.cshtml" />
     <None Include="Web References\WSTest\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -470,7 +472,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\Products\" />
+    <Folder Include="Images\Vehicles\" />
     <Folder Include="Views\ActivitiesAPI\" />
   </ItemGroup>
   <ItemGroup>

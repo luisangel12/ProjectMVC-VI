@@ -9,20 +9,28 @@ namespace ProjectMVC.Logica.BL
         /// <summary>
         /// GET VEHICLES
         /// </summary>
-        /// <param name="VehicleId"></param>
+        /// <param name="Vehicles"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        public List<Models.DB.Vehicles> GetVehicles()
+        public List<Models.DB.Vehicles> GetVehicles(int id, int? customrtId)
         {
             DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
 
             var listVehicles = (from _vehicles in _context.Vehicles
-                                    //join _states in _context.States on _vehicles.Sta equals _states.Id
-                                    //join _activities in _context.Activities on _vehicles.ActivityId equals _activities.Id
-                                    //join _priorities in _context.Priorities on _vehicles.PriorityId equals _priorities.Id
+                                 
+                                join _ClassVehicles in _context.ClassVehicles on _vehicles.ClassVehicleId equals _ClassVehicles.Id
+                                join _TypeService in _context.TypeServices on _vehicles.TypeServiceId equals _TypeService.Id
+                                       
+
+
                                 select new Models.DB.Vehicles
                                 {
-                                    //Id = _vehicles.Id,
+                                    ClassVehicle = new Models.DB. ClassVehicle
+                                    {
+                                        Name = _ClassVehicles.Name
+
+                                    },
+                                    Id = _vehicles.Id,
                                     LicensePlate = _vehicles.LicensePlate,
                                     NroTransitLicense = _vehicles.NroTransitLicense,
                                     StateVehicle = _vehicles.StateVehicle,
@@ -30,11 +38,14 @@ namespace ProjectMVC.Logica.BL
                                     ClassVehicleId = _vehicles.ClassVehicleId,
                                     Image = _vehicles.Image,
                                     CustomerId = _vehicles.CustomerId,
-                                   
+
                                 }).ToList();
 
-            //if (projectId != null)
-            //    listTasks = listTasks.Where(x => x.ProjectId == projectId).ToList();
+            if (customrtId != null)
+                listVehicles = listVehicles.Where(x => x.CustomerId == customrtId).ToList();
+
+            if (id != null)
+                listVehicles = listVehicles.Where(x => x.Id == id).ToList();
             //if (id != null)
             //    listTasks = listTasks.Where(x => x.Id == id).ToList();
 
@@ -52,27 +63,31 @@ namespace ProjectMVC.Logica.BL
         /// <param name="classVehicleId"></param>
         /// <param name="image"></param>
         /// <param name="customerId"></param>
-        public void CreateVehicles(string licensePlate,
+        public void CreateVehicles(int id,
+            string licensePlate,
             string nroTransitLicense,
             bool stateVehicle,
             int? trypeServiceId,
             int? classVehicleId,
-            string image
-            )
+            string image,
+            int customerId)
         {
             DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
 
             _context.Vehicles.Add(new DAL.Models.Vehicle
             {
+                //Id = id,
                 LicensePlate = licensePlate,
                 NroTransitLicense = nroTransitLicense,
                 StateVehicle = stateVehicle,
                 TypeServiceId = trypeServiceId,
                 ClassVehicleId = classVehicleId,
-                Image = image
+                Image = image,
+                CustomerId = customerId
             });
 
             _context.SaveChanges();
         }
+
     }
 }
