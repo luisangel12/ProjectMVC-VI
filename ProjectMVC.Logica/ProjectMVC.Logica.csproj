@@ -60,7 +60,7 @@
     <Compile Include="BL\Customer.cs" />
     <Compile Include="BL\Cyties.cs" />
     <Compile Include="BL\Priorities.cs" />
-    <Compile Include="BL\Projects.cs" />
+    <Compile Include="BL\VehicleFuels.cs" />
     <Compile Include="BL\States.cs" />
     <Compile Include="BL\Tasks.cs" />
     <Compile Include="BL\Tenants.cs" />
@@ -82,7 +82,7 @@
     <Compile Include="Models\BindingModels\ActivitiesBindingModels.cs" />
     <Compile Include="Models\BindingModels\ClassVehicleBindingModel.cs" />
     <Compile Include="Models\BindingModels\ProjectsBindingModel.cs" />
-    <Compile Include="Models\BindingModels\TasksBindingModel.cs" />
+    <Compile Include="Models\BindingModels\VehicleFuelsCreateBindingModel.cs" />
     <Compile Include="Models\BindingModels\VehicleMaintenanceBindingModel.cs" />
     <Compile Include="Models\BindingModels\VehiclesBindingModel.cs" />
     <Compile Include="Models\BindingModels\VehicleGeneralInformationBindingModels.cs" />

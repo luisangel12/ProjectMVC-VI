@@ -91,7 +91,7 @@ namespace ProjectMVC.Controllers
                 vehicleGeneralInformation.CreateVehicleGeneralInformation(
                     model.BrandId,
                     model.Line,
-                    model.Model,
+                    model.ModelV,
                     model.Color,
                     model.SerialNumber,
                     model.EngineNumber,

@@ -198,13 +198,15 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
-    <Compile Include="Controllers\ProjectsJsonController.cs" />
+    <Compile Include="Controllers\VehicleFuelsController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\VehicleMaintenanceController.cs" />
+    <Compile Include="Controllers\VehiclePolicySOATController.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
     <Compile Include="Controllers\VehicleGeneralInformationController.cs" />
+    <Compile Include="Controllers\VehicleTechnicalDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -395,8 +397,8 @@
     <Content Include="Views\Vehicles\Create.cshtml" />
     <Content Include="Views\VehicleGeneralInformation\Index.cshtml" />
     <Content Include="Views\VehicleGeneralInformation\Create.cshtml" />
-    <Content Include="Views\VehicleTechnicalData\Index.cshtml" />
-    <Content Include="Views\VehicleTechnicalData\Create.cshtml" />
+    <Content Include="Views\VehicleFuels\Index.cshtml" />
+    <Content Include="Views\VehicleFuels\Create.cshtml" />
     <Content Include="Views\FileUpload\Index.cshtml" />
     <Content Include="Views\FileUpload\Show.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
@@ -474,6 +476,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Images\Vehicles\" />
     <Folder Include="Views\ActivitiesAPI\" />
+    <Folder Include="Views\VehiclePolicySOAT\" />
+    <Folder Include="Views\VehicleTechnicalData\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

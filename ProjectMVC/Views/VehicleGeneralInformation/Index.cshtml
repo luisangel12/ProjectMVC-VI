@@ -1,10 +1,10 @@
-﻿@model IEnumerable < ProjectMVC.DAL.Models.VehicleGeneralInformation>
+﻿@model IEnumerable<ProjectMVC.DAL.Models.VehicleGeneralInformation>
 
 @{
     ViewBag.Title = "Index";
 }
 
-    <h2>VehicleGeneralInformation</h2>
+<h2>VehicleGeneralInformation</h2>
 
 @Html.ActionLink(" ", "Create", "VehicleGeneralInformation", null, new { @class = "btn btn-primary fas fa-plus-circle" })
 
@@ -61,58 +61,58 @@
         <td></td>
     </tr>
 
-    @foreach (var item in Model)
+    @*@foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.BrandId)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Line)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Model)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Color)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.SerialNumber)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.EngineNumber)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ChassisNumber)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.VIN)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Cylinder)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TypeBody)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TypeTireId)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.InitialEnrollmentDate)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.NroDoors)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TypeTireId)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.AuthoritiesTransitId)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.VehicleId)
-    </td>
-</tr>
-    }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrandId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Line)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EngineNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChassisNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VIN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cylinder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeBody)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeTireId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InitialEnrollmentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NroDoors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeTireId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthoritiesTransitId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleId)
+            </td>
+        </tr>
+    }*@
 
 </table>

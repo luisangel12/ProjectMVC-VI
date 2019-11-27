@@ -37,7 +37,7 @@ namespace ProjectMVC.Controllers
             return View();
         }
 
-        [HttpPost]
+        //[HttpPost]
         //public async Task<ActionResult> Create(Logica.Models.BindingModels.ProjectsCreateBindingModel model)
         //{
         //    if (ModelState.IsValid)
@@ -59,62 +59,62 @@ namespace ProjectMVC.Controllers
         //    return View(model);
         //}
 
-        public ActionResult Edit(int? id)
-        {
-            Logica.BL.Projects projects = new Logica.BL.Projects();
-            var project = projects.GetProjects(id, null).FirstOrDefault();
+        //public ActionResult Edit(int? id)
+        //{
+        //    Logica.BL.VehicleFuels projects = new Logica.BL.VehicleFuels();
+        //    var project = projects.GetProjects(id, null).FirstOrDefault();
 
-            var projectBindingModel = new Logica.Models.BindingModels.ProjectsCreateBindingModel
-            {
-                Id = project.Id,
-                Details = project.Details,
-                ExpectedCompletionDate = project.ExpectedCompletionDate,
-                Title = project.Title
-            };
+        //    var projectBindingModel = new Logica.Models.BindingModels.ProjectsCreateBindingModel
+        //    {
+        //        Id = project.Id,
+        //        Details = project.Details,
+        //        ExpectedCompletionDate = project.ExpectedCompletionDate,
+        //        Title = project.Title
+        //    };
 
-            return View(projectBindingModel);
-        }
+        //    return View(projectBindingModel);
+        //}
 
-        [HttpPost]
-        public ActionResult Edit(Logica.Models.BindingModels.ProjectsCreateBindingModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                Logica.BL.Projects projects = new Logica.BL.Projects();
-                projects.UpdateProjects(model.Id,
-                    model.Title,
-                    model.Details,
-                    model.ExpectedCompletionDate);
+        //[HttpPost]
+        //public ActionResult Edit(Logica.Models.BindingModels.ProjectsCreateBindingModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        Logica.BL.VehicleFuels projects = new Logica.BL.VehicleFuels();
+        //        projects.UpdateProjects(model.Id,
+        //            model.Title,
+        //            model.Details,
+        //            model.ExpectedCompletionDate);
 
-                return RedirectToAction("Index");
-            }
+        //        return RedirectToAction("Index");
+        //    }
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
-        public ActionResult Details(int? id)
-        {
-            Logica.BL.Projects projects = new Logica.BL.Projects();
-            var project = projects.GetProjects(id, null).FirstOrDefault();
+        //public ActionResult Details(int? id)
+        //{
+        //    Logica.BL.VehicleFuels projects = new Logica.BL.VehicleFuels();
+        //    var project = projects.GetProjects(id, null).FirstOrDefault();
 
-            var projectDetailsViewModel = new Logica.Models.ViewModels.ProjectsDetailsViewModel
-            {
-                Details = project.Details,
-                ExpectedCompletionDate = project.ExpectedCompletionDate,
-                Title = project.Title,
-                CreatedAt = project.CreatedAt,
-                UpdatedAt = project.UpdatedAt
-            };
+        //    var projectDetailsViewModel = new Logica.Models.ViewModels.ProjectsDetailsViewModel
+        //    {
+        //        Details = project.Details,
+        //        ExpectedCompletionDate = project.ExpectedCompletionDate,
+        //        Title = project.Title,
+        //        CreatedAt = project.CreatedAt,
+        //        UpdatedAt = project.UpdatedAt
+        //    };
 
-            return View(projectDetailsViewModel);
-        }
+        //    return View(projectDetailsViewModel);
+        //}
 
-        public ActionResult Delete(int? id)
-        {
-            Logica.BL.Projects projects = new Logica.BL.Projects();
-            projects.DeleteProjects(id);
+        //public ActionResult Delete(int? id)
+        //{
+        //    Logica.BL.VehicleFuels projects = new Logica.BL.VehicleFuels();
+        //    projects.DeleteProjects(id);
 
-            return RedirectToAction("Index");
-        }
+        //    return RedirectToAction("Index");
+        //}
     }
 }

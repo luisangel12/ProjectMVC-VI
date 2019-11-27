@@ -19,7 +19,7 @@ namespace ProjectMVC.Logica.Models.BindingModels
 
         [Required(ErrorMessage = "The field Model is required")]
         [Display(Name = "Model")]
-        public int? Model { get; set; }
+        public int? ModelV { get; set; }
 
         [Required(ErrorMessage = "The field Color is required")]
         [Display(Name = "Color")]
@@ -54,7 +54,7 @@ namespace ProjectMVC.Logica.Models.BindingModels
         public int? TypeFuelId { get; set; }
 
         [Required(ErrorMessage = "The field EngineNumber is required")]
-        [Display(Name = "EngineNumber")]
+        [Display(Name = "InitialEnrollmentDate")]
         public DateTime? InitialEnrollmentDate { get; set; }
 
         [Required(ErrorMessage = "The field NroDoors is required")]

@@ -24,9 +24,9 @@
     </div>
     <div class="form-row">
         <div class="col-md-12">
-            @Html.LabelFor(m => m.Model)
-            @Html.EditorFor(m => m.Model, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(m => m.Model, "", new { @class = "text-danger" })
+            @Html.LabelFor(m => m.ModelV)
+            @Html.EditorFor(m => m.ModelV, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.ModelV, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-row">
@@ -57,13 +57,7 @@
             @Html.ValidationMessageFor(m => m.ChassisNumber, "", new { @class = "text-danger" })
         </div>
     </div>
-    <div class="form-row">
-        <div class="col-md-12">
-            @Html.LabelFor(m => m.ChassisNumber)
-            @Html.EditorFor(m => m.ChassisNumber, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(m => m.ChassisNumber, "", new { @class = "text-danger" })
-        </div>
-    </div>
+   
     <div class="form-row">
         <div class="col-md-12">
             @Html.LabelFor(m => m.VIN)
