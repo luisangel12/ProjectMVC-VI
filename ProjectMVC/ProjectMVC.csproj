@@ -204,7 +204,7 @@
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\VehicleMaintenanceController.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
-    <Compile Include="Controllers\VehicleTechnicalDataController.cs" />
+    <Compile Include="Controllers\VehicleGeneralInformationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

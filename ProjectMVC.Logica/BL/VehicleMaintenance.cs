@@ -15,7 +15,7 @@ namespace ProjectMVC.Logica.BL
         /// <param name="Amount"></param>
         /// <param name="VehicleId"></param>
 
-        public void CreateVehicleMantenimiento(
+        public void CreateVehicleMantenimiento(int id,
             string Description,
              DateTime? MaintenanceDate,
              double? CurrentMileage,

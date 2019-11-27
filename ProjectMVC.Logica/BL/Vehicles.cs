@@ -12,7 +12,7 @@ namespace ProjectMVC.Logica.BL
         /// <param name="Vehicles"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        public List<Models.DB.Vehicles> GetVehicles(int id, int? customrtId)
+        public List<Models.DB.Vehicles> GetVehicles(/*string id,*/ /*int? customrtId*/)
         {
             DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
 
@@ -41,11 +41,11 @@ namespace ProjectMVC.Logica.BL
 
                                 }).ToList();
 
-            if (customrtId != null)
-                listVehicles = listVehicles.Where(x => x.CustomerId == customrtId).ToList();
+            //if (customrtId != null)
+            //    listVehicles = listVehicles.Where(x => x.CustomerId == customrtId).ToList();
 
-            if (id != null)
-                listVehicles = listVehicles.Where(x => x.Id == id).ToList();
+            //if (id != null)
+            //    listVehicles = listVehicles.Where(x => x.Id.ToString() == id).ToList();
             //if (id != null)
             //    listTasks = listTasks.Where(x => x.Id == id).ToList();
 

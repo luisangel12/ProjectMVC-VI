@@ -5,14 +5,10 @@ namespace ProjectMVC.Logica.BL
 {
     public class TypeMaintenance
     {
-
-        /// <summary>
-        /// Get_typemaintenance
-        /// </summary>
-        /// <returns></returns>
         public List<Models.DB.TypeMaintenance> GetTypeMaintenance()
         {
             DAL.Models.ProjectMVCEntities2 _context = new DAL.Models.ProjectMVCEntities2();
+
             var listTypeMaintenance = (from _typemaintenance in _context.TypeMaintenances
                                    where _typemaintenance.Active == true
                                    select new Models.DB.TypeMaintenance

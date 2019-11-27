@@ -54,6 +54,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\Activities.cs" />
+    <Compile Include="BL\AuthoritiesTransit.cs" />
+    <Compile Include="BL\Brands.cs" />
     <Compile Include="BL\ClassVehicle.cs" />
     <Compile Include="BL\Customer.cs" />
     <Compile Include="BL\Cyties.cs" />
@@ -63,10 +65,13 @@
     <Compile Include="BL\Tasks.cs" />
     <Compile Include="BL\Tenants.cs" />
     <Compile Include="BL\TypeDocument.cs" />
+    <Compile Include="BL\TypeFuels.cs" />
     <Compile Include="BL\TypeMaintenance.cs" />
     <Compile Include="BL\TypeServices.cs" />
+    <Compile Include="BL\TypeTires.cs" />
     <Compile Include="BL\Users.cs" />
     <Compile Include="BL\Utils.cs" />
+    <Compile Include="BL\VehicleGeneralInformation.cs" />
     <Compile Include="BL\Vehicles.cs" />
     <Compile Include="BL\VehicleMaintenance.cs" />
     <Compile Include="Data\ConnectionDB.cs" />
@@ -80,7 +85,7 @@
     <Compile Include="Models\BindingModels\TasksBindingModel.cs" />
     <Compile Include="Models\BindingModels\VehicleMaintenanceBindingModel.cs" />
     <Compile Include="Models\BindingModels\VehiclesBindingModel.cs" />
-    <Compile Include="Models\BindingModels\VehicleTechnicalDataBindingModels.cs" />
+    <Compile Include="Models\BindingModels\VehicleGeneralInformationBindingModels.cs" />
     <Compile Include="Models\DB\Activities.cs" />
     <Compile Include="Models\DB\AspNetRoles.cs" />
     <Compile Include="Models\DB\AuthoritiesTransit.cs" />

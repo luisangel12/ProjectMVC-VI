@@ -38,23 +38,24 @@ namespace ProjectMVC.Controllers
             Logica.BL.TypeMaintenance typemaintenancev = new Logica.BL.TypeMaintenance();
             ViewBag.TypeMaintenance = typemaintenancev.GetTypeMaintenance();
 
+            Logica.BL.Vehicles vehicles = new Logica.BL.Vehicles();
+            ViewBag.Vehicles = vehicles.GetVehicles();
+
 
             return View(db.VehicleMaintenances.ToList());
         }
 
 
 
-        public async Task<ActionResult> Create()
+        public ActionResult Create()
 
-        {
-            ApplicationUser user = await UserManager.FindByNameAsync(User.Identity.Name);
-
-
+        {          
 
             Logica.BL.TypeMaintenance typemaintenancev = new Logica.BL.TypeMaintenance();
             ViewBag.TypeMaintenance = typemaintenancev.GetTypeMaintenance();
 
-    
+            Logica.BL.Vehicles vehicles = new Logica.BL.Vehicles();
+            ViewBag.Vehicles = vehicles.GetVehicles();
 
             return View();
 
@@ -64,26 +65,28 @@ namespace ProjectMVC.Controllers
         public async Task<ActionResult> Create(Logica.Models.BindingModels.VehicleMaintenanceCreateBindingModel model)
         {
             ApplicationUser user = await UserManager.FindByNameAsync(User.Identity.Name);
-            Logica.BL.Vehicles vehicles1 = new Logica.BL.Vehicles();
-
-            var capturaVehiculo = vehicles1.GetVehicles(user.Id, null).FirstOrDefault();
-
-            Logica.BL.Vehicles vehicles = new Logica.BL.Vehicles();
-
-            ViewBag.Vehicle = vehicles.GetVehicles(capturaVehiculo.Id);
 
             Logica.BL.TypeMaintenance typemaintenancev = new Logica.BL.TypeMaintenance();
             ViewBag.TypeMaintenance = typemaintenancev.GetTypeMaintenance();
 
+            Logica.BL.Vehicles vehicles = new Logica.BL.Vehicles();
+            ViewBag.Vehicles = vehicles.GetVehicles();
+
 
             if (ModelState.IsValid)
             {
+                Logica.BL.VehicleMaintenance vehicleMaintenance = new Logica.BL.VehicleMaintenance();
+                vehicleMaintenance.CreateVehicleMantenimiento(model.Id,
+                    model.Description,
+                    model.MaintenanceDate,
+                    model.CurrentMileage,
+                    model.NextMaintenanceDate,
+                    model.TypeMaintenanceId,
+                    model.Amount,
+                    model.VehicleId
+                    );
 
-                var ImageVehicle = string.Empty;
-
-              
-
-
+                return View("Index");
             }
             return View(model);
         }

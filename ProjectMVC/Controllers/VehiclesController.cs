@@ -36,14 +36,23 @@ namespace ProjectMVC.Controllers
 
         public ActionResult Index()
         {
-            Logica.BL.TypeServices typeServices = new Logica.BL.TypeServices();
-            ViewBag.TypeService = typeServices.GetTypeServices();
+            Logica.BL.Vehicles vehicles = new Logica.BL.Vehicles();
+            var listVehicle = vehicles.GetVehicles();
 
-            Logica.BL.ClassVehicle classVehicle = new Logica.BL.ClassVehicle();
-            ViewBag.ClassVehicle = classVehicle.GetClassVehicle();
+            var listCustomerViewModel = listVehicle.Select(x => new Logica.Models.ViewModels.VehiclesViewModel
+            {
+                
+                LicensePlate = x.LicensePlate,
+                NroTransitLicense = x.NroTransitLicense,
+                StateVehicle = x.StateVehicle,
+                TypeServiceId = x.TypeServiceId,
+                ClassVehicleId = x.CustomerId,
+                Image = x.Image,
+                CustomerId = x.CustomerId
 
+            }).ToList();
 
-            return View(db.Vehicles.ToList());
+            return View(listCustomerViewModel);
         }
 
 

@@ -12,6 +12,6 @@ namespace ProjectMVC.Logica.Models.DB
 
         public string Name { get; set; }
 
-        public int Active { get; set; }
+        public bool? Active { get; set; }
     }
 }

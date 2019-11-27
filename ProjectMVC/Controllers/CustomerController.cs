@@ -23,15 +23,10 @@ namespace ProjectMVC.Controllers
                 Surname = x.Surname,
                 SecondSurname = x.SecondSurname,
                 Telephone = x.Telephone,
-
                 DocumentTypeId = x.DocumentTypes.Name,
                 CityId = x.City.Name,
+
             }).ToList();
-
-            //Logica.BL.Projects projects = new Logica.BL.Projects();
-            //var project = projects.GetProjects(projectId, null).FirstOrDefault();
-
-            //ViewBag.Project = project;
 
             return View(listCustomerViewModel);
         }      

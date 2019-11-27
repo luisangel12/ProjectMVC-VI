@@ -8,6 +8,11 @@ namespace ProjectMVC.Logica.Models.DB
 {
     public class VehicleMaintenance
     {
+        public VehicleMaintenance()
+        {
+            Vehicles = new Vehicles();
+            TypeMaintenance = new TypeMaintenance();
+        }
         public int Id { get; set; }
 
         public string Description { get; set; }
@@ -23,5 +28,9 @@ namespace ProjectMVC.Logica.Models.DB
         public float Amount { get; set; }
 
         public int VehicleId { get; set; }
+
+
+        public Vehicles Vehicles { get; set; }
+        public TypeMaintenance TypeMaintenance { get; set; }
     }
 }
